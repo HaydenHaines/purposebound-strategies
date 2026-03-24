@@ -12,11 +12,12 @@ const {
   formName = 'lead-magnet',
   buttonText = 'Get It Free',
 } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <form
   name={formName}
   method="POST"
-  action="/thank-you"
+  action={`${base}thank-you`}
   data-netlify="true"
   netlify-honeypot="bot-field"
   class="flex gap-2 justify-center max-w-md mx-auto"

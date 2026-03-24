@@ -1,6 +1,7 @@
 ---
 // src/components/Hero.astro
 import { theme } from '../../theme.config';
+const base = import.meta.env.BASE_URL;
 ---
 <section class="bg-rich border-b-[3px] border-accent flex items-stretch min-h-[320px]">
   <!-- Left: copy + CTAs -->
@@ -18,13 +19,13 @@ import { theme } from '../../theme.config';
     </p>
     <div class="flex gap-3">
       <a
-        href="/start"
+        href={`${base}start`}
         class="bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
       >
         Get the Free Guide
       </a>
       <a
-        href="/contact"
+        href={`${base}contact`}
         class="border border-cream text-cream text-[11px] uppercase tracking-wider px-6 py-3 hover:bg-cream hover:text-deep transition-all"
       >
         Book a Discovery Call

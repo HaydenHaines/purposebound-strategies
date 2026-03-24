@@ -8,6 +8,7 @@ import { getCollection } from 'astro:content';
 const services = await getCollection('services');
 // Sort by order field so coaching (1) appears before consulting (2)
 const sorted = services.sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL;
 ---
 <Page
   title="Services"
@@ -45,7 +46,7 @@ const sorted = services.sort((a, b) => a.data.order - b.data.order);
       Not sure which is right for you? Start with a conversation.
     </p>
     <a
-      href="/contact"
+      href={`${base}contact`}
       class="inline-block bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
     >
       Book a Discovery Call
