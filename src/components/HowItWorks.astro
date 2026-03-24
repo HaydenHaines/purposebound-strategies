@@ -1,0 +1,40 @@
+---
+// src/components/HowItWorks.astro
+import SectionLabel from './SectionLabel.astro';
+
+const steps = [
+  {
+    title: 'Discovery Call',
+    body: "We talk honestly about where you are, where you want to go, and whether we're the right fit for each other.",
+  },
+  {
+    title: 'Build Your Plan',
+    body: 'A coaching engagement designed around your team, your culture, and the specific results you need to see.',
+  },
+  {
+    title: 'Lead with Purpose',
+    body: "Ongoing accountability, frameworks, and coaching that build a sales culture you'd be proud to stand behind.",
+  },
+];
+---
+<section class="bg-rich px-10 py-14">
+  <div class="text-center mb-10">
+    <SectionLabel text="How It Works" />
+  </div>
+  <div class="flex items-start justify-center gap-6 max-w-3xl mx-auto">
+    {steps.map((step, i) => (
+      <>
+        {i > 0 && (
+          <div class="text-burgundy text-2xl mt-4 flex-shrink-0">→</div>
+        )}
+        <div class="flex-1 text-center max-w-[200px]">
+          <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 text-deep font-bold text-sm">
+            {i + 1}
+          </div>
+          <h3 class="text-cream font-bold text-sm mb-2">{step.title}</h3>
+          <p class="text-muted text-xs leading-relaxed">{step.body}</p>
+        </div>
+      </>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+// src/components/Hero.astro
+import { theme } from '../../theme.config';
+---
+<section class="bg-rich border-b-[3px] border-accent flex items-stretch min-h-[320px]">
+  <!-- Left: copy + CTAs -->
+  <div class="flex-1 px-10 py-12 flex flex-col justify-center">
+    <p class="text-accent text-[10px] uppercase tracking-[0.3em] mb-4">
+      Sales Coaching · Management Consulting
+    </p>
+    <h1 class="text-cream font-heading text-4xl font-bold leading-tight mb-3">
+      Build a Business That<br />
+      Honors <span class="text-accent">Something Greater.</span>
+    </h1>
+    <p class="text-muted text-sm leading-relaxed max-w-md mb-8">
+      Coaching and consulting for sales leaders ready to build teams, cultures,
+      and revenue engines that reflect who they are — and Who they serve.
+    </p>
+    <div class="flex gap-3">
+      <a
+        href="/start"
+        class="bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
+      >
+        Get the Free Guide
+      </a>
+      <a
+        href="/contact"
+        class="border border-cream text-cream text-[11px] uppercase tracking-wider px-6 py-3 hover:bg-cream hover:text-deep transition-all"
+      >
+        Book a Discovery Call
+      </a>
+    </div>
+  </div>
+
+  <!-- Right: founder photo slot -->
+  <div class="w-56 bg-deep flex flex-col items-center justify-end px-5 pt-5">
+    <div class="w-40 h-52 bg-rich rounded-t-lg border-2 border-burgundy border-b-0 flex items-center justify-center">
+      <div class="text-center text-muted">
+        <!-- Replace src with real headshot path from theme.config.ts when available -->
+        <div class="text-4xl mb-2">👤</div>
+        <p class="text-[9px] uppercase tracking-widest text-muted/60">
+          {theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'Founder Photo'}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

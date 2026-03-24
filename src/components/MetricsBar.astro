@@ -1,0 +1,17 @@
+---
+// src/components/MetricsBar.astro
+import { theme } from '../../theme.config';
+---
+<div class="bg-deep px-8 py-4 flex justify-center items-center gap-14">
+  {theme.metrics.map((metric, i) => (
+    <>
+      {i > 0 && <div class="w-px h-7 bg-burgundy" />}
+      <div class="text-center">
+        <div class="text-accent text-xl font-bold">{metric.value}</div>
+        <div class="text-muted text-[9px] uppercase tracking-widest mt-0.5">
+          {metric.label}
+        </div>
+      </div>
+    </>
+  ))}
+</div>
