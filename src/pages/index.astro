@@ -1,7 +1,77 @@
 ---
-// src/pages/index.astro — placeholder, full homepage built in Task 8
+// src/pages/index.astro
 import Page from '../layouts/Page.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import Hero from '../components/Hero.astro';
+import MetricsBar from '../components/MetricsBar.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import CredibilityBar from '../components/CredibilityBar.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import LeadMagnetForm from '../components/LeadMagnetForm.astro';
+import Testimonial from '../components/Testimonial.astro';
+import { theme } from '../../theme.config';
+import { getCollection } from 'astro:content';
+
+const testimonialEntries = await getCollection('testimonials', ({ data }) => data.featured);
+const featured = testimonialEntries[0]?.data;
 ---
-<Page title="PurposeBound Strategies">
-  <p>Coming soon.</p>
+<Page title="Sales Coaching & Consulting | Grounded in Faith">
+
+  <Hero />
+  <MetricsBar />
+
+  <!-- Who I Work With -->
+  <section class="bg-cream px-10 py-12 text-center border-b border-muted/20">
+    <SectionLabel text="Who I Work With" />
+    <h2 class="text-pb-text text-2xl font-bold mb-3 max-w-xl mx-auto leading-snug">
+      Sales managers and small business owners building a team for the first time — who want to do it right from the start.
+    </h2>
+    <p class="text-muted text-sm leading-relaxed max-w-lg mx-auto">
+      If you're leading a sales team of 3–30 people and feel the tension between hitting your numbers and building something you're proud of, you're exactly who this is for.
+    </p>
+  </section>
+
+  <!-- The Problem -->
+  <section class="bg-cream px-10 py-12 text-center max-w-2xl mx-auto">
+    <SectionLabel text="The Problem" />
+    <h2 class="text-pb-text text-2xl font-bold leading-snug mb-4">
+      Most sales cultures are built on pressure, performance anxiety, and short-term thinking.
+    </h2>
+    <p class="text-pb-text/70 text-sm leading-relaxed">
+      You know there's a better way — one built on integrity, genuine relationship, and results that compound. You just need someone who's built it before and knows how to get there.
+    </p>
+  </section>
+
+  <HowItWorks />
+  <CredibilityBar />
+
+  <!-- What I Believe (taste) -->
+  <section class="px-10 py-12 max-w-2xl mx-auto">
+    <SectionLabel text="What I Believe" />
+    <QuoteBlock
+      quote="A sales organization is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into."
+      linkText="Read the full statement"
+      linkHref="/about"
+    />
+  </section>
+
+  <!-- Lead Magnet CTA -->
+  <section class="bg-rich border-t-[3px] border-accent px-10 py-14 text-center">
+    <SectionLabel text="Free Resource" />
+    <h2 class="text-cream text-2xl font-bold mb-3">{theme.leadMagnet.title}</h2>
+    <p class="text-muted text-sm mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>
+    <LeadMagnetForm />
+  </section>
+
+  <!-- Testimonial -->
+  {featured && (
+    <Testimonial
+      name={featured.name}
+      title={featured.title}
+      company={featured.company}
+      quote={featured.quote}
+      result={featured.result}
+    />
+  )}
+
 </Page>
