@@ -81,6 +81,7 @@ Content Collections are structured so Decap CMS can be added later with a `confi
 | `/about` | What I Believe | Faith statement → coaching philosophy → founder story |
 | `/services` | Services | 1:1 coaching + consulting offerings |
 | `/start` | Lead Magnet Landing | Dedicated conversion page — no nav/footer |
+| `/thank-you` | Thank You | Post-submission confirmation + next step CTA |
 | `/blog` | Blog | Thought leadership (launches empty, ready to populate) |
 | `/contact` | Contact / Book | Calendly embed + discovery call FAQ |
 
@@ -150,7 +151,10 @@ Two primary offering cards:
 No public pricing on either. Pricing is a discovery call conversation.
 
 ### `/start` — Lead Magnet Landing
-Dedicated conversion page. No nav, no footer. See Funnel Architecture above.
+Dedicated conversion page. No nav, no footer. See Funnel Architecture above. Form submission via Netlify Forms — on success, redirect to `/thank-you`.
+
+### `/thank-you`
+Post-submission confirmation page. No nav exit paths. Three elements: confirmation message ("Your guide is on its way"), a short "what happens next" note (check email, discovery call CTA), and a single "Book a Discovery Call" button. Enables conversion tracking via URL.
 
 ### `/blog`
 Launches with a single placeholder message: *"Thinking out loud about sales, leadership, and what it means to build something that honors God. First post coming soon."* Grid layout ready to populate. Each post: featured image, title, 2-line excerpt, read time.
@@ -189,6 +193,8 @@ All content is file-based. Decap CMS maps to this structure with no refactoring.
 - Contact email
 - Calendly URL
 - Social links
+- Results metrics bar values (leaders coached, outcome stat, years experience) — placeholder strings until real data collected. Never hardcoded in markup.
+- Email provider webhook URL (stubbed until provider is chosen — ConvertKit or MailerLite recommended)
 
 No color values, logo paths, or contact details appear hardcoded in any component.
 
