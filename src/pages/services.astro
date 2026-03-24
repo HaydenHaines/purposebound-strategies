@@ -1,0 +1,55 @@
+---
+// src/pages/services.astro
+import Page from '../layouts/Page.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { getCollection } from 'astro:content';
+
+const services = await getCollection('services');
+// Sort by order field so coaching (1) appears before consulting (2)
+const sorted = services.sort((a, b) => a.data.order - b.data.order);
+---
+<Page
+  title="Services"
+  description="1:1 sales coaching and organizational consulting — grounded in Christian values."
+>
+
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+    <SectionLabel text="Services" />
+    <h1 class="text-cream text-4xl font-bold mb-4">How We Work Together</h1>
+    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+      Every engagement is designed around your team and your context.
+      No rigid programs — real work, with real accountability.
+    </p>
+  </section>
+
+  <section class="bg-rich px-10 py-14">
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {sorted.map((service) => (
+        <ServiceCard
+          title={service.data.title}
+          tagline={service.data.tagline}
+          description={service.data.description}
+          whoItIsFor={service.data.whoItIsFor}
+          includes={service.data.includes}
+          cta={service.data.cta ?? "Let's Talk"}
+          limited={service.data.limited}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bg-cream px-10 py-14 text-center">
+    <p class="text-pb-text text-lg font-bold mb-6 max-w-lg mx-auto">
+      Not sure which is right for you? Start with a conversation.
+    </p>
+    <a
+      href="/contact"
+      class="inline-block bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
+    >
+      Book a Discovery Call
+    </a>
+  </section>
+
+</Page>

@@ -62,3 +62,16 @@ test.describe('Lead Magnet Form', () => {
     await expect(emailInput).toHaveAttribute('required');
   });
 });
+
+test.describe('/services page', () => {
+  test('shows both service offerings', async ({ page }) => {
+    await page.goto('/services');
+    await expect(page.getByText('1:1 Coaching')).toBeVisible();
+    await expect(page.getByText('Consulting')).toBeVisible();
+  });
+
+  test('consulting card shows limited engagements note', async ({ page }) => {
+    await page.goto('/services');
+    await expect(page.getByText(/Currently accepting limited engagements/i)).toBeVisible();
+  });
+});
