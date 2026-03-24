@@ -1,0 +1,48 @@
+---
+// src/components/LeadMagnetForm.astro
+// Netlify Forms: Netlify detects data-netlify="true" during build and wires up the form handler.
+// No backend needed. Submission redirects to /thank-you.
+import { theme } from '../../theme.config';
+
+interface Props {
+  formName?: string; // must match the hidden form-name input
+  buttonText?: string;
+}
+
+const {
+  formName = 'lead-magnet',
+  buttonText = 'Get It Free',
+} = Astro.props;
+---
+<form
+  name={formName}
+  method="POST"
+  action="/thank-you"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="flex gap-2 justify-center max-w-md mx-auto"
+>
+  <!-- Netlify requires a hidden form-name field when using data-netlify -->
+  <input type="hidden" name="form-name" value={formName} />
+  <!-- Honeypot field: bots fill it, humans don't -->
+  <p class="hidden" aria-hidden="true">
+    <label>Don't fill this out: <input name="bot-field" /></label>
+  </p>
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Your email address"
+    class="flex-1 px-4 py-3 bg-cream text-pb-text text-sm placeholder:text-muted/70 border-none outline-none focus:ring-2 focus:ring-accent"
+    aria-label="Email address"
+  />
+  <button
+    type="submit"
+    class="bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-5 py-3 whitespace-nowrap hover:brightness-110 transition-all"
+  >
+    {buttonText}
+  </button>
+</form>
+<p class="text-center text-muted text-[10px] mt-3 tracking-wide">
+  No spam, ever. Unsubscribe anytime.
+</p>
