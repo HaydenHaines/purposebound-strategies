@@ -1,0 +1,34 @@
+---
+// src/pages/thank-you.astro
+// No nav, no footer — the user just converted. Give them one action: book the call.
+import Bare from '../layouts/Bare.astro';
+import { theme } from '../../theme.config';
+---
+<Bare title="You're in — check your email">
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-20 text-center min-h-screen flex flex-col items-center justify-center">
+    <div class="max-w-lg mx-auto">
+      <p class="text-accent text-[10px] uppercase tracking-[0.3em] mb-6">You're In</p>
+      <h1 class="text-cream text-3xl font-bold mb-6">
+        Your guide is on its way.
+      </h1>
+      <p class="text-muted text-sm leading-relaxed mb-4">
+        Check your inbox — the guide will arrive in the next few minutes.
+        If you don't see it, check your spam folder.
+      </p>
+      <p class="text-muted text-sm leading-relaxed mb-12">
+        In the meantime — if you're ready to talk about what building a
+        Christ-centered sales team looks like for you specifically, I'd
+        love to have that conversation.
+      </p>
+      <a
+        href={theme.calendly.url}
+        class="inline-block bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Book a Discovery Call
+      </a>
+      <p class="text-muted/60 text-[10px] mt-4">No pressure. Just a conversation.</p>
+    </div>
+  </section>
+</Bare>

@@ -63,6 +63,22 @@ test.describe('Lead Magnet Form', () => {
   });
 });
 
+test.describe('/thank-you page', () => {
+  test('shows confirmation and Calendly CTA', async ({ page }) => {
+    await page.goto('/thank-you');
+    await expect(page.locator('h1')).toContainText('on its way');
+    // Should have the Calendly link
+    const cta = page.getByRole('link', { name: /Book a Discovery Call/i });
+    await expect(cta).toBeVisible();
+  });
+
+  test('has no nav or footer', async ({ page }) => {
+    await page.goto('/thank-you');
+    await expect(page.locator('nav')).toHaveCount(0);
+    await expect(page.locator('footer')).toHaveCount(0);
+  });
+});
+
 test.describe('/services page', () => {
   test('shows both service offerings', async ({ page }) => {
     await page.goto('/services');

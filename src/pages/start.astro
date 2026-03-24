@@ -1,0 +1,44 @@
+---
+// src/pages/start.astro
+import Bare from '../layouts/Bare.astro';
+import LeadMagnetForm from '../components/LeadMagnetForm.astro';
+import { theme } from '../../theme.config';
+---
+<Bare
+  title="Get the Free Guide"
+  description={theme.leadMagnet.description}
+>
+  <!-- Hero: the offer -->
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+    <p class="text-accent text-[10px] uppercase tracking-[0.25em] mb-4">Free Resource</p>
+    <h1 class="text-cream text-3xl font-bold mb-4 max-w-xl mx-auto leading-snug">
+      {theme.leadMagnet.title}
+    </h1>
+    <p class="text-muted text-sm leading-relaxed max-w-md mx-auto mb-10">
+      {theme.leadMagnet.description}
+    </p>
+    <LeadMagnetForm />
+  </section>
+
+  <!-- What's inside -->
+  <section class="bg-cream px-10 py-14 max-w-xl mx-auto">
+    <p class="text-burgundy text-[10px] uppercase tracking-[0.25em] mb-6 text-center">What's Inside</p>
+    <ul class="space-y-4">
+      {theme.leadMagnet.bullets.map((bullet) => (
+        <li class="flex gap-3 text-pb-text text-sm leading-relaxed">
+          <span class="text-accent font-bold flex-shrink-0 mt-0.5">→</span>
+          {bullet}
+        </li>
+      ))}
+    </ul>
+
+    <!-- Phase 2 teaser slot: scorecard (leave placeholder, wire up in Phase 2) -->
+    <div class="mt-12 pt-8 border-t border-muted/30 text-center">
+      <p class="text-muted text-xs leading-relaxed max-w-xs mx-auto">
+        Already doing the basics?
+        <!-- DEBT: replace with scorecard link when Phase 2 is built -->
+        The self-assessment scorecard is coming soon.
+      </p>
+    </div>
+  </section>
+</Bare>
