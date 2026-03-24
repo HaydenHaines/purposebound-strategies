@@ -1,0 +1,70 @@
+---
+// src/pages/contact.astro
+import Page from '../layouts/Page.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import { theme } from '../../theme.config';
+
+const faq = [
+  {
+    q: 'What happens on the discovery call?',
+    a: "We talk honestly about where you are, what you're trying to build, and whether coaching is the right next step. There's no pitch — just a real conversation.",
+  },
+  {
+    q: 'How long is the call?',
+    a: "30 minutes. That's enough to know if it's worth going deeper.",
+  },
+  {
+    q: 'Who is this call for?',
+    a: "Sales managers, team leaders, and small business owners who want to build a sales culture they're proud of — and who are open to faith being part of the conversation.",
+  },
+  {
+    q: 'What happens after the call?',
+    a: "If we're a fit, I'll send a proposal for a coaching engagement. If we're not, I'll tell you honestly — and point you toward someone who might be.",
+  },
+];
+---
+<Page
+  title="Book a Discovery Call"
+  description="Start a conversation about building a sales team you're proud of."
+>
+
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+    <SectionLabel text="Contact" />
+    <h1 class="text-cream text-4xl font-bold mb-4">Let's Have a Conversation</h1>
+    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+      No pitch. No pressure. Just an honest conversation about where you are
+      and whether this is the right fit.
+    </p>
+  </section>
+
+  <!-- Calendly embed -->
+  <section class="bg-cream px-10 py-14">
+    <div class="max-w-3xl mx-auto">
+      <!-- Calendly inline widget -->
+      <!-- DEBT: replace [handle] in theme.config.ts when Calendly account is set up -->
+      <div
+        class="calendly-inline-widget min-h-[650px]"
+        data-url={theme.calendly.url}
+        style="min-width:320px"
+      />
+      <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-rich px-10 py-14">
+    <div class="max-w-2xl mx-auto">
+      <SectionLabel text="Before You Book" />
+      <h2 class="text-cream text-2xl font-bold mb-8">Common Questions</h2>
+      <div class="space-y-8">
+        {faq.map((item) => (
+          <div>
+            <h3 class="text-accent font-bold text-sm mb-2">{item.q}</h3>
+            <p class="text-muted text-sm leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Page>

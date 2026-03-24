@@ -1,0 +1,48 @@
+---
+// src/pages/blog/index.astro
+import Page from '../../layouts/Page.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const sorted = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<Page
+  title="Blog"
+  description="Thinking out loud about sales, leadership, and what it means to build something that honors God."
+>
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+    <SectionLabel text="Blog" />
+    <h1 class="text-cream text-4xl font-bold mb-4">Thinking Out Loud</h1>
+    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+      On sales, leadership, and what it means to build something that honors God.
+    </p>
+  </section>
+
+  <section class="bg-cream px-10 py-14">
+    {sorted.length === 0 ? (
+      <div class="max-w-xl mx-auto text-center py-20">
+        <p class="text-pb-text/60 text-sm leading-relaxed italic">
+          First post coming soon.
+        </p>
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {sorted.map((post) => (
+          <a href={`/blog/${post.slug}`} class="group block bg-white border border-muted/30 hover:border-accent transition-colors p-6">
+            {post.data.image && (
+              <img src={post.data.image} alt="" class="w-full h-40 object-cover mb-4" />
+            )}
+            <p class="text-burgundy text-[10px] uppercase tracking-widest mb-2">
+              {post.data.pubDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+            </p>
+            <h2 class="text-pb-text font-bold text-base mb-2 group-hover:text-burgundy transition-colors">
+              {post.data.title}
+            </h2>
+            <p class="text-pb-text/60 text-xs leading-relaxed">{post.data.description}</p>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+</Page>

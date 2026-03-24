@@ -91,3 +91,20 @@ test.describe('/services page', () => {
     await expect(page.getByText(/Currently accepting limited engagements/i)).toBeVisible();
   });
 });
+
+test.describe('/blog page', () => {
+  test('loads with empty state message', async ({ page }) => {
+    await page.goto('/blog');
+    await expect(page.locator('h1')).toContainText('Thinking Out Loud');
+    // Empty state when no posts exist
+    await expect(page.getByText(/First post coming soon/i)).toBeVisible();
+  });
+});
+
+test.describe('/contact page', () => {
+  test('loads and shows FAQ', async ({ page }) => {
+    await page.goto('/contact');
+    await expect(page.locator('h1')).toContainText('Conversation');
+    await expect(page.getByText(/What happens on the discovery call/i)).toBeVisible();
+  });
+});
