@@ -1,0 +1,19 @@
+---
+// src/layouts/Bare.astro
+// Conversion pages: no nav, no footer.
+// The only action available is the conversion action.
+import Base from './Base.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<Base title={title} description={description}>
+  <main>
+    <slot />
+  </main>
+</Base>

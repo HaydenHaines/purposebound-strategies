@@ -1,0 +1,33 @@
+---
+// src/layouts/Base.astro
+import { theme } from '../../theme.config';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = theme.site.name,
+  description = theme.site.description,
+} = Astro.props;
+
+const pageTitle = title === theme.site.name
+  ? theme.site.name
+  : `${title} | ${theme.site.name}`;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Preload Georgia — it's a system font, no external load needed -->
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
