@@ -1,4 +1,22 @@
 ---
-// src/components/Footer.astro — stub, full implementation in Task 5
+// src/components/Footer.astro
+import { theme } from '../../theme.config';
+
+const year = new Date().getFullYear();
 ---
-<footer><!-- Footer placeholder --></footer>
+<footer class="bg-deep px-8 py-6 flex justify-between items-center">
+  <span class="text-accent text-xs font-bold uppercase tracking-wider">
+    {theme.site.name}
+  </span>
+  <nav class="flex items-center gap-6" aria-label="Footer navigation">
+    <span class="text-muted text-[10px]">© {year}</span>
+    {theme.nav.map((item) => (
+      <a href={item.href} class="text-muted text-[10px] hover:text-cream transition-colors">
+        {item.label}
+      </a>
+    ))}
+    <a href="/contact" class="text-muted text-[10px] hover:text-cream transition-colors">
+      Contact
+    </a>
+  </nav>
+</footer>

@@ -1,0 +1,19 @@
+---
+// src/components/QuoteBlock.astro
+interface Props {
+  quote: string;
+  linkText?: string;
+  linkHref?: string;
+}
+const { quote, linkText, linkHref } = Astro.props;
+---
+<blockquote class="border-l-4 border-accent pl-6 py-2">
+  <p class="text-pb-text text-lg font-bold leading-relaxed italic mb-3">
+    "{quote}"
+  </p>
+  {linkText && linkHref && (
+    <a href={linkHref} class="text-burgundy text-xs uppercase tracking-widest hover:text-accent transition-colors">
+      → {linkText}
+    </a>
+  )}
+</blockquote>
