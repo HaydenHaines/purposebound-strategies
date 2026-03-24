@@ -1,0 +1,24 @@
+/* src/styles/global.css */
+/*
+  COLOR VALUES: Keep in sync with theme.config.ts → brand.colors.
+  If you change a color in theme.config.ts, update the matching var here.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-deep:     #2c1018;
+  --color-rich:     #3d1520;
+  --color-accent:   #c9a84c;
+  --color-cream:    #f7f5f0;
+  --color-burgundy: #6b1e2e;
+  --color-muted:    #d9c4b8;
+  --color-text:     #2c1018;
+}
+
+html {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--color-text);
+  background-color: var(--color-cream);
+}
