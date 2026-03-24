@@ -5,19 +5,19 @@ const base = import.meta.env.BASE_URL;
 ---
 <nav class="bg-deep px-8 py-4 flex justify-between items-center">
   <a href={base} class="flex items-center gap-3">
-    <img src={theme.brand.logo} alt={theme.site.name} height="28" class="h-7" />
+    <img src={`${base}${theme.brand.logo}`} alt={theme.site.name} height="28" class="h-7" />
     <span class="text-cream text-xs font-bold uppercase tracking-[0.15em]">
       {theme.site.name}
     </span>
   </a>
   <div class="flex items-center gap-6">
     {theme.nav.map((item) => (
-      <a href={`${base}${item.href.slice(1)}`} class="text-accent text-[11px] uppercase tracking-wider hover:text-cream transition-colors">
+      <a href={`${base}${item.href}`} class="text-accent text-[11px] uppercase tracking-wider hover:text-cream transition-colors">
         {item.label}
       </a>
     ))}
     <a
-      href={`${base}contact`}
+      href={`${base}/contact`}
       class="bg-accent text-deep text-[10px] font-bold uppercase tracking-wider px-4 py-2 hover:brightness-110 transition-all"
     >
       Book a Call
