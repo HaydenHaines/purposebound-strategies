@@ -2,9 +2,10 @@
 // src/components/SectionLabel.astro
 interface Props {
   text: string;
+  light?: boolean;
 }
-const { text } = Astro.props;
+const { text, light = false } = Astro.props;
 ---
-<p class="text-burgundy text-[10px] uppercase tracking-[0.25em] font-bold mb-3">
+<p class={`${light ? 'text-accent' : 'text-burgundy'} text-[10px] uppercase tracking-[0.25em] font-bold mb-3`}>
   {text}
 </p>
