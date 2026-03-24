@@ -1,0 +1,30 @@
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Netlify Forms — detected automatically from data-netlify="true" in HTML
+# No additional config needed for basic form handling.
+# To add email notifications: Netlify Dashboard → Forms → lead-magnet → Notifications
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirect /admin to homepage until Decap CMS is configured
+# DEBT: remove this redirect when Decap CMS is configured
+[[redirects]]
+  from = "/admin"
+  to = "/"
+  status = 302
