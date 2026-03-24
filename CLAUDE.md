@@ -4,6 +4,8 @@ Christian sales coaching website for [Founder Name]. Astro 5 + Tailwind + Netlif
 
 **Core value:** Lead capture → email nurture → discovery call.
 **Stack:** Astro 5, Tailwind 3, Netlify Forms, Calendly, TypeScript
+**Repo:** https://github.com/HaydenHaines/purposebound-strategies
+**Live (GitHub Pages):** https://haydenhaines.github.io/purposebound-strategies/
 
 ## Commands
 
@@ -41,6 +43,10 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 
 7. **Consulting CTA**: `src/content/services/consulting.json` uses "Start the Conversation" as the CTA (not "Inquire About Consulting"). This was changed during testing to avoid E2E test ambiguity — do not revert.
 
+8. **GitHub Pages `base` path — no trailing slash**: `import.meta.env.BASE_URL` is `/purposebound-strategies` (no trailing slash). Always write `${base}/path` not `${base}path`. Static assets in `public/` also need the prefix: `src={`${base}/logo-placeholder.svg`}`. This affects every `href` and asset `src` in every component and page.
+
+9. **SectionLabel and QuoteBlock on dark sections**: Both components have a `light` boolean prop. Always pass `light` when the component sits inside a `bg-rich` or `bg-deep` section — without it, `text-burgundy` (#6b1e2e) and `text-pb-text` (#2c1018) are near-invisible on the dark backgrounds (#3d1520 / #2c1018). Default (no prop) = dark text for cream/light sections.
+
 ## Key Decisions Log
 
 | Date | Decision | Rationale |
@@ -49,3 +55,4 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 | 2026-03-24 | theme.config.ts as single source | All tokens in one place; swap logo/colors/copy without touching components |
 | 2026-03-24 | Bare layout for /start and /thank-you | Zero exit paths on conversion pages — no nav, no footer |
 | 2026-03-24 | Netlify Forms over backend | No server needed; free tier handles small lead volumes; Decap CMS auth uses Netlify Identity anyway |
+| 2026-03-24 | GitHub Pages for testing, Netlify for production | Client testing before domain/Netlify account is set up; swap `astro.config.mjs` site/base back to `purposeboundstrategies.com` and remove `base` when moving to Netlify |
