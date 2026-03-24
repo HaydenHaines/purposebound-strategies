@@ -72,6 +72,42 @@ export const theme = {
       'How to measure success beyond the scoreboard',
     ],
   },
+  howItWorks: {
+    steps: [
+      {
+        title: 'Discovery Call',
+        body: "We talk honestly about where you are, where you want to go, and whether we're the right fit for each other.",
+      },
+      {
+        title: 'Build Your Plan',
+        body: 'A coaching engagement designed around your team, your culture, and the specific results you need to see.',
+      },
+      {
+        title: 'Lead with Purpose',
+        body: "Ongoing accountability, frameworks, and coaching that build a sales culture you'd be proud to stand behind.",
+      },
+    ],
+  },
+  contact: {
+    faq: [
+      {
+        q: 'What happens on the discovery call?',
+        a: "We talk honestly about where you are, what you're trying to build, and whether coaching is the right next step. There's no pitch — just a real conversation.",
+      },
+      {
+        q: 'How long is the call?',
+        a: "30 minutes. That's enough to know if it's worth going deeper.",
+      },
+      {
+        q: 'Who is this call for?',
+        a: "Sales managers, team leaders, and small business owners who want to build a sales culture they're proud of — and who are open to faith being part of the conversation.",
+      },
+      {
+        q: 'What happens after the call?',
+        a: "If we're a fit, I'll send a proposal for a coaching engagement. If we're not, I'll tell you honestly — and point you toward someone who might be.",
+      },
+    ],
+  },
 } as const;
 
 export type Theme = typeof theme;

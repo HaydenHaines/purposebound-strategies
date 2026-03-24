@@ -4,24 +4,6 @@ import Page from '../layouts/Page.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import { theme } from '../../theme.config';
 
-const faq = [
-  {
-    q: 'What happens on the discovery call?',
-    a: "We talk honestly about where you are, what you're trying to build, and whether coaching is the right next step. There's no pitch — just a real conversation.",
-  },
-  {
-    q: 'How long is the call?',
-    a: "30 minutes. That's enough to know if it's worth going deeper.",
-  },
-  {
-    q: 'Who is this call for?',
-    a: "Sales managers, team leaders, and small business owners who want to build a sales culture they're proud of — and who are open to faith being part of the conversation.",
-  },
-  {
-    q: 'What happens after the call?',
-    a: "If we're a fit, I'll send a proposal for a coaching engagement. If we're not, I'll tell you honestly — and point you toward someone who might be.",
-  },
-];
 ---
 <Page
   title="Book a Discovery Call"
@@ -57,7 +39,7 @@ const faq = [
       <SectionLabel text="Before You Book" />
       <h2 class="text-cream text-2xl font-bold mb-8">Common Questions</h2>
       <div class="space-y-8">
-        {faq.map((item) => (
+        {theme.contact.faq.map((item) => (
           <div>
             <h3 class="text-accent font-bold text-sm mb-2">{item.q}</h3>
             <p class="text-muted text-sm leading-relaxed">{item.a}</p>
