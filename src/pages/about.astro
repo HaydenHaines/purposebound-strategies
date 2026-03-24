@@ -1,0 +1,77 @@
+---
+// src/pages/about.astro
+import Page from '../layouts/Page.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import { theme } from '../../theme.config';
+---
+<Page
+  title="What I Believe"
+  description="The faith and philosophy behind PurposeBound Strategies."
+>
+
+  <!-- Page Hero -->
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+    <SectionLabel text="About" />
+    <h1 class="text-cream text-4xl font-bold mb-4">What I Believe</h1>
+    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+      The foundation isn't a philosophy. It's a Person — and everything flows from there.
+    </p>
+  </section>
+
+  <!-- Section 1: Faith Statement -->
+  <section class="bg-cream px-10 py-14 max-w-2xl mx-auto">
+    <SectionLabel text="The Foundation" />
+    <h2 class="text-pb-text text-2xl font-bold mb-6">
+      I believe business is a calling, not just a career.
+    </h2>
+    <!-- PLACEHOLDER: Replace with full faith statement copy from founder.
+         This section should address:
+         - What he believes about God and vocation
+         - The biblical basis for ethical, excellent work
+         - What it means to honor Christ in a commercial context
+         - How the "interior to exterior" principle applies to a business -->
+    <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed">
+      <p>[Founder's faith statement — the scriptural and theological foundation for his work. This leads the page because the faith is not supplemental; it is the source.]</p>
+      <p>[Relevant Scripture and how it shapes his understanding of sales, leadership, and business.]</p>
+      <p>[What it means, practically, to build a business that honors Christ — from the inside out.]</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Coaching Philosophy -->
+  <section class="bg-rich px-10 py-14">
+    <div class="max-w-2xl mx-auto">
+      <SectionLabel text="How This Shapes My Work" />
+      <h2 class="text-cream text-2xl font-bold mb-6">
+        A sales team is a culture. Culture forms people. People serve customers.
+      </h2>
+      <div class="space-y-4 text-muted text-sm leading-relaxed mb-8">
+        <p>[How the faith foundation translates into coaching philosophy — what he actually does differently and why.]</p>
+        <p>[His approach to accountability, performance, culture, and leadership development — grounded in conviction, not just technique.]</p>
+      </div>
+      <QuoteBlock
+        quote="A sales organization is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into."
+      />
+    </div>
+  </section>
+
+  <!-- Section 3: Founder Story -->
+  <section class="bg-cream px-10 py-14 max-w-2xl mx-auto">
+    <SectionLabel text="My Story" />
+    <h2 class="text-pb-text text-2xl font-bold mb-6">
+      {theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'The Founder'}
+    </h2>
+    <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed mb-10">
+      <p>[Founder's background: sales career, leadership roles, formative experiences.]</p>
+      <p>[The moment or season where faith and vocation came together — why he started PurposeBound.]</p>
+      <p>[Who he is today and what drives him to do this work.]</p>
+    </div>
+    <a
+      href="/contact"
+      class="inline-block bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
+    >
+      Book a Discovery Call
+    </a>
+  </section>
+
+</Page>

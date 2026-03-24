@@ -31,6 +31,19 @@ test.describe('Homepage', () => {
   });
 });
 
+test.describe('/about page', () => {
+  test('loads and shows title', async ({ page }) => {
+    await page.goto('/about');
+    await expect(page.locator('h1')).toContainText('What I Believe');
+  });
+
+  test('has a discovery call CTA', async ({ page }) => {
+    await page.goto('/about');
+    const cta = page.getByRole('link', { name: /Book a Discovery Call/i });
+    await expect(cta).toHaveAttribute('href', '/contact');
+  });
+});
+
 test.describe('Lead Magnet Form', () => {
   test('form on /start has correct Netlify attributes', async ({ page }) => {
     await page.goto('/start');
