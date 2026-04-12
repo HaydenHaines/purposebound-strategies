@@ -26,7 +26,7 @@ export const theme = {
       accent:   '#d09b2a',   // gold — CTAs, labels, the light
       cream:    '#f7f5f0',   // light backgrounds, body sections
       link:     '#2573b6',   // logo sphere blue — section labels, links, borders on cream sections
-      muted:    '#c8d8e8',   // body text on dark backgrounds
+      muted:    '#6a96b8',   // body text on dark backgrounds
       text:     '#132240',   // body text on light backgrounds
     },
     fonts: {

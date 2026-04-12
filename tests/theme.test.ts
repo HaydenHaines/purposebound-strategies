@@ -24,7 +24,7 @@ describe('theme.config', () => {
     expect(c.accent).toBe('#d09b2a');
     expect(c.cream).toBe('#f7f5f0');
     expect(c.link).toBe('#2573b6');
-    expect(c.muted).toBe('#c8d8e8');
+    expect(c.muted).toBe('#6a96b8');
     expect(c.text).toBe('#132240');
   });
 });

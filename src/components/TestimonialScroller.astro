@@ -1,0 +1,79 @@
+---
+// src/components/TestimonialScroller.astro
+interface Testimonial {
+  name: string;
+  title: string;
+  company: string;
+  quote: string;
+  result?: string;
+}
+interface Props {
+  testimonials: Testimonial[];
+}
+const { testimonials } = Astro.props;
+---
+<section class="bg-cream px-10 py-14 text-center">
+  <!-- All slides share the same grid cell; container height = tallest slide -->
+  <div class="grid">
+    {testimonials.map((t, i) => (
+      <div
+        class="col-start-1 row-start-1 testimonial-slide transition-opacity duration-500 flex flex-col items-center"
+        data-slide={i}
+        style={i === 0 ? 'opacity:1;' : 'opacity:0;pointer-events:none;'}
+      >
+        <div class="text-link text-4xl mb-4 font-heading">"</div>
+        <blockquote class="text-pb-text text-base font-semibold leading-relaxed max-w-xl mx-auto italic mb-4">
+          {t.quote}
+        </blockquote>
+        {t.result && (
+          <p class="text-accent text-xs font-bold uppercase tracking-wider mb-4">{t.result}</p>
+        )}
+        <p class="text-pb-text/50 text-[11px] uppercase tracking-wider">
+          — {t.name}, {t.title}, {t.company}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Navigation dots -->
+  <div class="flex justify-center gap-2 mt-8">
+    {testimonials.map((_, i) => (
+      <button
+        class={`testimonial-dot w-2 h-2 rounded-full transition-colors ${i === 0 ? 'bg-accent' : 'bg-link/30'}`}
+        data-target={i}
+        aria-label={`Show testimonial ${i + 1}`}
+      />
+    ))}
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector<HTMLElement>('.testimonial-slide')!.closest('section')!;
+  const slides = section.querySelectorAll<HTMLElement>('.testimonial-slide');
+  const dots = section.querySelectorAll<HTMLButtonElement>('.testimonial-dot');
+  let current = 0;
+  let timer: ReturnType<typeof setTimeout>;
+
+  function goTo(n: number) {
+    slides[current].style.opacity = '0';
+    slides[current].style.pointerEvents = 'none';
+    dots[current].classList.remove('bg-accent');
+    dots[current].classList.add('bg-link/30');
+    current = ((n % slides.length) + slides.length) % slides.length;
+    slides[current].style.opacity = '1';
+    slides[current].style.pointerEvents = '';
+    dots[current].classList.remove('bg-link/30');
+    dots[current].classList.add('bg-accent');
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(() => { goTo(current + 1); schedule(); }, 7000);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); schedule(); });
+  });
+
+  schedule();
+</script>
