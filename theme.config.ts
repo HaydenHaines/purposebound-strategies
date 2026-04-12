@@ -5,29 +5,29 @@
 export const theme = {
   site: {
     name: 'PurposeBound Strategies',
-    tagline: 'Build a Business That Honors Something Greater.',
+    tagline: 'Equipping Leaders for Marketplace Ministry.',
     description:
-      'Sales coaching and management consulting for leaders who build with integrity.',
+      'Corporate ministry and pastoral coaching for faith-driven leaders committed to bringing the Kingdom into the marketplace.',
     url: 'https://purposeboundstrategies.com', // DEBT: update when domain is confirmed
   },
   founder: {
-    name: '[Founder Name]', // replace when confirmed
-    title: 'Founder, PurposeBound Strategies',
+    name: 'Tory Bryant',
+    title: 'Founder & Owner, PurposeBound Strategies',
     photo: '/images/founder.jpg',
-    email: 'hello@purposeboundstrategies.com', // replace with real email
+    email: 'hello@purposeboundstrategies.com', // DEBT: update with real email
   },
   brand: {
     logo: '/logo.png',
-    // Palette: "Stained Glass" — deep structural colors + single gold accent per section.
+    // Palette: logo-aligned — deep navy + sphere blue + gold accent.
     // Gold is used ONCE per section as the moment the light catches. Not a pattern, a highlight.
     colors: {
-      deep:     '#132240',  // nav, footer, darkest backgrounds
-      rich:     '#1b3560',  // hero, dark sections
-      accent:   '#d09b2a',  // gold — CTAs, labels, the light
-      cream:    '#f7f5f0',  // light backgrounds, body sections
+      deep:     '#132240',   // nav, footer, darkest backgrounds
+      rich:     '#1b3560',   // hero, dark sections
+      accent:   '#d09b2a',   // gold — CTAs, labels, the light
+      cream:    '#f7f5f0',   // light backgrounds, body sections
       link:     '#2573b6',   // logo sphere blue — section labels, links, borders on cream sections
-      muted:    '#c8d8e8',  // body text on dark backgrounds
-      text:     '#132240',  // body text on light backgrounds
+      muted:    '#c8d8e8',   // body text on dark backgrounds
+      text:     '#132240',   // body text on light backgrounds
     },
     fonts: {
       heading: ['Georgia', '"Times New Roman"', 'serif'],
@@ -35,9 +35,9 @@ export const theme = {
     },
   },
   metrics: [
-    { value: '[X]+', label: 'Leaders Coached' },
-    { value: '[X]%', label: 'Report Stronger Team Culture' },
-    { value: '[X] Yrs', label: 'Sales Leadership Experience' },
+    { value: '25+', label: 'Years of Experience' },
+    { value: '6',   label: 'Million-Dollar Leaders Developed' },
+    { value: '4',   label: 'Mission Trips Led' },
   ],
   nav: [
     { label: 'About', href: '/about' },
@@ -56,14 +56,14 @@ export const theme = {
     twitter: '',  // add when available
   },
   credibility: [
-    { name: '[Publication or Conference]', url: '' },
-    { name: '[Certification]', url: '' },
-    { name: '[Podcast or Media]', url: '' },
+    { name: '2024 Facilis Cares Award', url: '' },
+    { name: 'Destiny Missions', url: '' },
+    { name: 'Mid-Cities Community Church', url: '' },
   ],
   leadMagnet: {
     title: 'The 5 Pillars of a Christ-Centered Sales Culture',
     description:
-      'A practical framework for sales leaders who want to build something that lasts.',
+      'A practical framework for faith-driven leaders who want to build something that lasts.',
     bullets: [
       'The biblical foundation for ethical selling',
       'How to build a team culture rooted in integrity',
@@ -75,16 +75,16 @@ export const theme = {
   howItWorks: {
     steps: [
       {
-        title: 'Discovery Call',
-        body: "We talk honestly about where you are, where you want to go, and whether we're the right fit for each other.",
+        title: 'Start the Conversation',
+        body: "A candid conversation about where your organization is, where you sense it's called to go, and whether Tory is the right fit for that journey. No pitch — just discernment.",
       },
       {
-        title: 'Build Your Plan',
-        body: 'A coaching engagement designed around your team, your culture, and the specific results you need to see.',
+        title: 'Walk Together',
+        body: "A pastoral engagement shaped around your people, your culture, and the specific work God seems to be calling your organization into.",
       },
       {
         title: 'Lead with Purpose',
-        body: "Ongoing accountability, frameworks, and coaching that build a sales culture you'd be proud to stand behind.",
+        body: "Ongoing presence, accountability, and equipping — helping your business become not just a place of work, but a mission field and a platform for lasting Kingdom impact.",
       },
     ],
   },
@@ -92,19 +92,19 @@ export const theme = {
     faq: [
       {
         q: 'What happens on the discovery call?',
-        a: "We talk honestly about where you are, what you're trying to build, and whether coaching is the right next step. There's no pitch — just a real conversation.",
+        a: "We talk honestly about where your organization is, what you're sensing God may be calling it toward, and whether a coaching relationship makes sense. There's no pitch — just a real conversation.",
       },
       {
         q: 'How long is the call?',
         a: "30 minutes. That's enough to know if it's worth going deeper.",
       },
       {
-        q: 'Who is this call for?',
-        a: "Sales managers, team leaders, and small business owners who want to build a sales culture they're proud of — and who are open to faith being part of the conversation.",
+        q: 'Who is this for?',
+        a: "Faith-driven business owners, executives, and leaders who sense their organization has a higher calling — and want a trusted pastoral presence to help build it.",
       },
       {
         q: 'What happens after the call?',
-        a: "If we're a fit, I'll send a proposal for a coaching engagement. If we're not, I'll tell you honestly — and point you toward someone who might be.",
+        a: "If we're a fit, I'll send a proposal for a coaching engagement. If we're not, I'll tell you honestly — and point you toward someone who might be better suited.",
       },
     ],
   },

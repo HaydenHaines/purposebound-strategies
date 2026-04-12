@@ -24,18 +24,12 @@ const base = import.meta.env.BASE_URL;
   <section class="bg-cream px-10 py-14 max-w-2xl mx-auto">
     <SectionLabel text="The Foundation" />
     <h2 class="text-pb-text text-2xl font-bold mb-6">
-      I believe business is a calling, not just a career.
+      I believe the marketplace is one of the largest mission fields in the world.
     </h2>
-    <!-- PLACEHOLDER: Replace with full faith statement copy from founder.
-         This section should address:
-         - What he believes about God and vocation
-         - The biblical basis for ethical, excellent work
-         - What it means to honor Christ in a commercial context
-         - How the "interior to exterior" principle applies to a business -->
     <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed">
-      <p>[Founder's faith statement — the scriptural and theological foundation for his work. This leads the page because the faith is not supplemental; it is the source.]</p>
-      <p>[Relevant Scripture and how it shapes his understanding of sales, leadership, and business.]</p>
-      <p>[What it means, practically, to build a business that honors Christ — from the inside out.]</p>
+      <p>Every transaction, every team meeting, every hire is an opportunity to reflect Christ. The question isn't whether your organization is forming the people in it — it's what it's forming them into.</p>
+      <p>PurposeBound Strategies exists to help business leaders see their work as both mission and ministry — cultivating spiritual formation, soul care, and moral clarity within the everyday rhythms of professional life. Not as a program or an initiative, but as a posture, a culture, and a way of life.</p>
+      <p>The world measures organizations by output and revenue. God measures them by what they form in the people who build them. My work is to help those people — and the leaders who shepherd them — stay anchored to that higher standard.</p>
     </div>
   </section>
 
@@ -47,12 +41,18 @@ const base = import.meta.env.BASE_URL;
         A sales team is a culture. Culture forms people. People serve customers.
       </h2>
       <div class="space-y-4 text-muted text-sm leading-relaxed mb-8">
-        <p>[How the faith foundation translates into coaching philosophy — what he actually does differently and why.]</p>
-        <p>[His approach to accountability, performance, culture, and leadership development — grounded in conviction, not just technique.]</p>
+        <p>Every coaching conversation, every performance review, every hire is a moment of formation. The culture you build shapes the character of everyone in it. My role isn't to manage your people for you — it's to walk alongside you as a trusted pastoral and shepherding presence, helping you lead from a place of spiritual clarity and Kingdom conviction.</p>
+        <p>Through PurposeBound Strategies, I equip and empower leaders to steward their organizations as mission fields — building teams anchored in faith, excellence, integrity, and purpose. Not because faith is good for business, but because faithful work is inherently excellent work.</p>
       </div>
       <QuoteBlock
         quote="A sales organization is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into."
         light
+      />
+      <img
+        src={`${base}/images/group-coaching.jpg`}
+        alt="Group coaching session with open Bibles"
+        class="mt-10 w-full object-cover rounded-sm"
+        loading="lazy"
       />
     </div>
   </section>
@@ -60,14 +60,27 @@ const base = import.meta.env.BASE_URL;
   <!-- Section 3: Founder Story -->
   <section class="bg-cream px-10 py-14 max-w-2xl mx-auto">
     <SectionLabel text="My Story" />
-    <h2 class="text-pb-text text-2xl font-bold mb-6">
-      {theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'The Founder'}
-    </h2>
-    <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed mb-10">
-      <p>[Founder's background: sales career, leadership roles, formative experiences.]</p>
-      <p>[The moment or season where faith and vocation came together — why he started PurposeBound.]</p>
-      <p>[Who he is today and what drives him to do this work.]</p>
+    <div class="flex items-start gap-6 mb-6">
+      <img
+        src={`${base}${theme.founder.photo}`}
+        alt={theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'Founder'}
+        class="w-24 h-24 rounded-full object-cover object-top border-2 border-accent flex-shrink-0"
+      />
+      <h2 class="text-pb-text text-2xl font-bold self-center">
+        {theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'The Founder'}
+      </h2>
     </div>
+    <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed mb-10">
+      <p>For over 25 years, Tory has served at the intersection of faith, leadership, and professional excellence — as a basketball coach at Wayland Baptist University and the University of Texas at Arlington, a sales leader overseeing $20–25M in annual revenue at Brandability, and a developer of six million-dollar-plus achievers in back-to-back years. He was honored with the 2024 Facilis Cares Award, a national recognition for excellence in corporate culture and service.</p>
+      <p>But underneath every role has been a single conviction: the workplace is a mission field, and every leader has the opportunity to shepherd the people in their care toward something greater than performance.</p>
+      <p>PurposeBound Strategies is the culmination of that conviction — a corporate ministry walking alongside ownership, leadership, and teams to nurture spiritual health, anchor workplace culture in Kingdom values, and help businesses become platforms for lasting impact. Tory has led two international and two domestic mission trips, founded company-wide Bible studies and corporate prayer at Brandability, and serves actively at Mid-Cities Community Church. He brings that same pastoral heart to every engagement.</p>
+    </div>
+    <img
+      src={`${base}/images/community.jpg`}
+      alt="PurposeBound community gathering"
+      class="mb-10 w-full object-cover rounded-sm"
+      loading="lazy"
+    />
     <a
       href={`${base}/contact`}
       class="inline-block bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
