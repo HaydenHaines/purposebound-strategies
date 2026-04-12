@@ -9,7 +9,7 @@ export default {
         rich:     'var(--color-rich)',
         accent:   'var(--color-accent)',
         cream:    'var(--color-cream)',
-        burgundy: 'var(--color-burgundy)',
+        link:     'var(--color-link)',
         muted:    'var(--color-muted)',
         'pb-text': 'var(--color-text)',
         // Note: 'text' is reserved by Tailwind so body text color uses 'pb-text'

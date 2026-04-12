@@ -25,7 +25,7 @@ export const theme = {
       rich:     '#1b3560',  // hero, dark sections
       accent:   '#d09b2a',  // gold — CTAs, labels, the light
       cream:    '#f7f5f0',  // light backgrounds, body sections
-      burgundy: '#2573b6',  // DEBT: token name is a holdover; value is now logo sphere blue. Rename to 'link' in a follow-up. Used for section labels, links, borders on cream sections.
+      link:     '#2573b6',   // logo sphere blue — section labels, links, borders on cream sections
       muted:    '#c8d8e8',  // body text on dark backgrounds
       text:     '#132240',  // body text on light backgrounds
     },

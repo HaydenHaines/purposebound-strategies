@@ -3,7 +3,7 @@ import { theme } from '../theme.config';
 
 describe('theme.config', () => {
   it('has all required color tokens', () => {
-    const required = ['deep', 'rich', 'accent', 'cream', 'burgundy', 'muted', 'text'];
+    const required = ['deep', 'rich', 'accent', 'cream', 'link', 'muted', 'text'];
     required.forEach((key) => {
       expect(theme.brand.colors[key as keyof typeof theme.brand.colors]).toMatch(/^#[0-9a-f]{6}$/i);
     });
@@ -23,7 +23,7 @@ describe('theme.config', () => {
     expect(c.rich).toBe('#1b3560');
     expect(c.accent).toBe('#d09b2a');
     expect(c.cream).toBe('#f7f5f0');
-    expect(c.burgundy).toBe('#2573b6');
+    expect(c.link).toBe('#2573b6');
     expect(c.muted).toBe('#c8d8e8');
     expect(c.text).toBe('#132240');
   });

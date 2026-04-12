@@ -13,7 +13,7 @@ const { quote, linkText, linkHref, light = false } = Astro.props;
     "{quote}"
   </p>
   {linkText && linkHref && (
-    <a href={linkHref} class={`${light ? 'text-muted' : 'text-burgundy'} text-xs uppercase tracking-widest hover:text-accent transition-colors`}>
+    <a href={linkHref} class={`${light ? 'text-muted' : 'text-link'} text-xs uppercase tracking-widest hover:text-accent transition-colors`}>
       → {linkText}
     </a>
   )}

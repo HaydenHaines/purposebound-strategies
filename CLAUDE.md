@@ -43,9 +43,9 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 
 7. **Consulting CTA**: `src/content/services/consulting.json` uses "Start the Conversation" as the CTA (not "Inquire About Consulting"). This was changed during testing to avoid E2E test ambiguity — do not revert.
 
-8. **GitHub Pages `base` path — no trailing slash**: `import.meta.env.BASE_URL` is `/purposebound-strategies` (no trailing slash). Always write `${base}/path` not `${base}path`. Static assets in `public/` also need the prefix: `src={`${base}/logo-placeholder.svg`}`. This affects every `href` and asset `src` in every component and page.
+8. **GitHub Pages `base` path — no trailing slash**: `import.meta.env.BASE_URL` is `/purposebound-strategies` (no trailing slash). Always write `${base}/path` not `${base}path`. Static assets in `public/` also need the prefix: `src={`${base}/logo.png`}`. This affects every `href` and asset `src` in every component and page.
 
-9. **SectionLabel and QuoteBlock on dark sections**: Both components have a `light` boolean prop. Always pass `light` when the component sits inside a `bg-rich` or `bg-deep` section — without it, `text-burgundy` (#6b1e2e) and `text-pb-text` (#2c1018) are near-invisible on the dark backgrounds (#3d1520 / #2c1018). Default (no prop) = dark text for cream/light sections.
+9. **SectionLabel and QuoteBlock on dark sections**: Both components have a `light` boolean prop. Always pass `light` when the component sits inside a `bg-rich` or `bg-deep` section — without it, `text-link` (#2573b6) and `text-pb-text` (#132240) are near-invisible on the dark backgrounds (#1b3560 / #132240). Default (no prop) = dark text for cream/light sections.
 
 ## Key Decisions Log
 
