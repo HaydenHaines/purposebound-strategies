@@ -13,21 +13,21 @@ export const theme = {
   founder: {
     name: '[Founder Name]', // replace when confirmed
     title: 'Founder, PurposeBound Strategies',
-    photo: '/images/founder.jpg', // replace when headshot is delivered
+    photo: '/images/founder.jpg',
     email: 'hello@purposeboundstrategies.com', // replace with real email
   },
   brand: {
-    logo: '/logo-placeholder.svg', // replace when logo is delivered
+    logo: '/logo.png',
     // Palette: "Stained Glass" — deep structural colors + single gold accent per section.
     // Gold is used ONCE per section as the moment the light catches. Not a pattern, a highlight.
     colors: {
-      deep: '#2c1018',      // dark backgrounds, nav, footer
-      rich: '#3d1520',      // hero, dark sections
-      accent: '#c9a84c',    // gold — CTAs, labels, the light
-      cream: '#f7f5f0',     // light backgrounds, body sections
-      burgundy: '#6b1e2e',  // section labels, links, borders
-      muted: '#d9c4b8',     // body text on dark backgrounds
-      text: '#2c1018',      // body text on light backgrounds
+      deep:     '#132240',  // nav, footer, darkest backgrounds
+      rich:     '#1b3560',  // hero, dark sections
+      accent:   '#d09b2a',  // gold — CTAs, labels, the light
+      cream:    '#f7f5f0',  // light backgrounds, body sections
+      burgundy: '#2573b6',  // section labels, links, borders (logo sphere blue)
+      muted:    '#c8d8e8',  // body text on dark backgrounds
+      text:     '#132240',  // body text on light backgrounds
     },
     fonts: {
       heading: ['Georgia', '"Times New Roman"', 'serif'],

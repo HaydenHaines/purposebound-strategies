@@ -16,4 +16,15 @@ describe('theme.config', () => {
   it('has a leadMagnet title', () => {
     expect(theme.leadMagnet.title.length).toBeGreaterThan(0);
   });
+
+  it('uses logo-aligned palette values', () => {
+    const c = theme.brand.colors;
+    expect(c.deep).toBe('#132240');
+    expect(c.rich).toBe('#1b3560');
+    expect(c.accent).toBe('#d09b2a');
+    expect(c.cream).toBe('#f7f5f0');
+    expect(c.burgundy).toBe('#2573b6');
+    expect(c.muted).toBe('#c8d8e8');
+    expect(c.text).toBe('#132240');
+  });
 });
