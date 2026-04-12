@@ -8,13 +8,13 @@
 @tailwind utilities;
 
 :root {
-  --color-deep:     #2c1018;
-  --color-rich:     #3d1520;
-  --color-accent:   #c9a84c;
+  --color-deep:     #132240;
+  --color-rich:     #1b3560;
+  --color-accent:   #d09b2a;
   --color-cream:    #f7f5f0;
-  --color-burgundy: #6b1e2e;
-  --color-muted:    #d9c4b8;
-  --color-text:     #2c1018;
+  --color-burgundy: #2573b6;
+  --color-muted:    #c8d8e8;
+  --color-text:     #132240;
 }
 
 html {
