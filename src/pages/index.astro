@@ -26,8 +26,8 @@ const base = import.meta.env.BASE_URL;
 
   <!-- Who I Work With + The Problem — side by side -->
   <section class="bg-cream border-b border-muted/20">
-    <div class="grid md:grid-cols-2 divide-x divide-muted/20">
-      <div class="px-10 py-14 text-center">
+    <div class="grid md:grid-cols-2">
+      <div class="px-10 py-14 text-center border-r border-muted/20">
         <SectionLabel text="Who I Work With" />
         <h2 class="text-pb-text text-2xl font-bold mb-4 leading-snug">
           Faith-driven business owners, executives, and leaders who sense their organization is called to something greater than its bottom line.
@@ -36,7 +36,7 @@ const base = import.meta.env.BASE_URL;
           If you're carrying the weight of your organization's culture — and quietly wondering if there's someone who can help you tend the souls in your care, not just the systems — you're exactly who this is for.
         </p>
       </div>
-      <div class="px-10 py-14 text-center">
+      <div class="border-l-4 border-accent px-10 py-14 text-left">
         <SectionLabel text="The Problem" />
         <h2 class="text-pb-text text-2xl font-bold leading-snug mb-4">
           Is your organization succeeding outwardly while quietly eroding inwardly?
@@ -44,6 +44,35 @@ const base = import.meta.env.BASE_URL;
         <p class="text-pb-text/70 text-base leading-relaxed">
           Policies, metrics, and performance systems can grow a business. They cannot shepherd hearts or tend souls. If you're a faith-driven leader sensing that your people need more than your systems can provide — PurposeBound Strategies exists for you.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Tory -->
+  <section class="bg-deep px-10 py-16">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+      <div>
+        <SectionLabel text="Meet Tory" light />
+        <blockquote class="text-cream text-2xl font-bold leading-snug italic mb-6">
+          "For 25 years I've watched leaders build organizations that succeed outwardly while quietly eroding inwardly. That gap is exactly where I work."
+        </blockquote>
+        <p class="text-muted text-base leading-relaxed mb-8">
+          Sales leader, coach, and Kingdom-minded guide — six million-dollar producers developed, 34 leaders taken from their desks to the mission field, and decades at the intersection of faith and professional excellence.
+        </p>
+        <a
+          href={`${base}/about`}
+          class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
+        >
+          Read His Story
+        </a>
+      </div>
+      <div class="overflow-hidden">
+        <img
+          src={`${base}${theme.founder.photo}`}
+          alt={theme.founder.name}
+          class="w-full aspect-square object-cover object-top"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -89,7 +118,7 @@ const base = import.meta.env.BASE_URL;
     <div class="mt-6 pl-6">
       <a
         href={`${base}/about`}
-        class="inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
+        class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
       >
         Read the Full Statement
       </a>

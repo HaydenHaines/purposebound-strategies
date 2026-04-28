@@ -18,6 +18,7 @@ export default {
       fontFamily: {
         heading: ['Georgia', '"Times New Roman"', 'serif'],
         body:    ['Georgia', '"Times New Roman"', 'serif'],
+        inter:   ['Inter', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         widest: '0.2em',
