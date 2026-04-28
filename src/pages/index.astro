@@ -24,46 +24,73 @@ const base = import.meta.env.BASE_URL;
   <Hero />
   <MetricsBar />
 
-  <!-- Who I Work With -->
-  <section class="bg-cream px-10 py-12 text-center border-b border-muted/20">
-    <SectionLabel text="Who I Work With" />
-    <h2 class="text-pb-text text-2xl font-bold mb-3 max-w-xl mx-auto leading-snug">
-      Faith-driven business owners, executives, and leaders who sense their organization is called to something greater than its bottom line.
-    </h2>
-    <p class="text-pb-text/70 text-sm leading-relaxed max-w-lg mx-auto">
-      If you're carrying the weight of your organization's culture — and quietly wondering if there's someone who can help you tend the souls in your care, not just the systems — you're exactly who this is for.
-    </p>
-  </section>
-
-  <!-- The Problem -->
-  <section class="bg-cream px-10 py-12 text-center max-w-2xl mx-auto">
-    <SectionLabel text="The Problem" />
-    <h2 class="text-pb-text text-2xl font-bold leading-snug mb-4">
-      Is your organization succeeding outwardly while quietly eroding inwardly?
-    </h2>
-    <p class="text-pb-text/70 text-sm leading-relaxed">
-      Policies, metrics, and performance systems can grow a business. They cannot shepherd hearts or tend souls. If you're a faith-driven leader sensing that your people need more than your systems can provide — PurposeBound Strategies exists for you.
-    </p>
+  <!-- Who I Work With + The Problem — side by side -->
+  <section class="bg-cream border-b border-muted/20">
+    <div class="grid md:grid-cols-2 divide-x divide-muted/20">
+      <div class="px-10 py-14 text-center">
+        <SectionLabel text="Who I Work With" />
+        <h2 class="text-pb-text text-2xl font-bold mb-4 leading-snug">
+          Faith-driven business owners, executives, and leaders who sense their organization is called to something greater than its bottom line.
+        </h2>
+        <p class="text-pb-text/70 text-base leading-relaxed">
+          If you're carrying the weight of your organization's culture — and quietly wondering if there's someone who can help you tend the souls in your care, not just the systems — you're exactly who this is for.
+        </p>
+      </div>
+      <div class="px-10 py-14 text-center">
+        <SectionLabel text="The Problem" />
+        <h2 class="text-pb-text text-2xl font-bold leading-snug mb-4">
+          Is your organization succeeding outwardly while quietly eroding inwardly?
+        </h2>
+        <p class="text-pb-text/70 text-base leading-relaxed">
+          Policies, metrics, and performance systems can grow a business. They cannot shepherd hearts or tend souls. If you're a faith-driven leader sensing that your people need more than your systems can provide — PurposeBound Strategies exists for you.
+        </p>
+      </div>
+    </div>
   </section>
 
   <HowItWorks />
   <CredibilityBar />
 
-  <!-- What I Believe (taste) -->
-  <section class="px-10 py-12 max-w-2xl mx-auto">
+  <!-- Photo Banner: Ministry in the Marketplace -->
+  <div class="relative h-72 overflow-hidden">
+    <img
+      src={`${base}/images/mission-group.jpg`}
+      alt="Group on mission trip"
+      class="w-full h-full object-cover object-center"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-deep/65 flex flex-col items-center justify-center text-center px-10">
+      <p class="text-accent text-xs uppercase tracking-[0.3em] mb-4">Ministry in the Marketplace</p>
+      <p class="text-cream text-2xl font-bold max-w-xl leading-snug">
+        Faith doesn't stop at the office door.
+      </p>
+      <p class="text-muted text-base mt-4 max-w-lg">
+        34 leaders brought from their desks to the mission field — and back again, changed.
+      </p>
+    </div>
+  </div>
+
+  <!-- What I Believe -->
+  <section class="px-10 py-10 max-w-2xl mx-auto">
     <SectionLabel text="What I Believe" />
     <QuoteBlock
       quote="A sales organization is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into."
-      linkText="Read the full statement"
-      linkHref={`${base}/about`}
     />
+    <div class="mt-6 pl-6">
+      <a
+        href={`${base}/about`}
+        class="inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
+      >
+        Read the Full Statement
+      </a>
+    </div>
   </section>
 
   <!-- Lead Magnet CTA -->
   <section class="bg-rich border-t-[3px] border-accent px-10 py-14 text-center">
     <SectionLabel text="Free Resource" light />
     <h2 class="text-cream text-2xl font-bold mb-3">{theme.leadMagnet.title}</h2>
-    <p class="text-muted text-sm mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>
+    <p class="text-muted text-base mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>
     <LeadMagnetForm />
   </section>
 

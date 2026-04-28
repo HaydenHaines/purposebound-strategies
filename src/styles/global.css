@@ -19,6 +19,7 @@
 
 html {
   font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.125rem;
   color: var(--color-text);
   background-color: var(--color-cream);
 }

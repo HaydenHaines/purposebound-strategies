@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL;
   <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
     <SectionLabel text="About" light />
     <h1 class="text-cream text-4xl font-bold mb-4">What I Believe</h1>
-    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+    <p class="text-muted text-base max-w-md mx-auto leading-relaxed">
       The foundation isn't a philosophy. It's a Person — and everything flows from there.
     </p>
   </section>
@@ -26,7 +26,7 @@ const base = import.meta.env.BASE_URL;
     <h2 class="text-pb-text text-2xl font-bold mb-6">
       I believe the marketplace is one of the largest mission fields in the world.
     </h2>
-    <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed">
+    <div class="space-y-4 text-pb-text/80 text-base leading-relaxed">
       <p>Every transaction, every team meeting, every hire is an opportunity to reflect Christ. The question isn't whether your organization is forming the people in it — it's what it's forming them into.</p>
       <p>PurposeBound Strategies exists to help business leaders see their work as both mission and ministry — cultivating spiritual formation, soul care, and moral clarity within the everyday rhythms of professional life. Not as a program or an initiative, but as a posture, a culture, and a way of life.</p>
       <p>The world measures organizations by output and revenue. God measures them by what they form in the people who build them. My work is to help those people — and the leaders who shepherd them — stay anchored to that higher standard.</p>
@@ -40,8 +40,8 @@ const base = import.meta.env.BASE_URL;
       <h2 class="text-cream text-2xl font-bold mb-6">
         A sales team is a culture. Culture forms people. People serve customers.
       </h2>
-      <div class="space-y-4 text-muted text-sm leading-relaxed mb-8">
-        <p>Every coaching conversation, every performance review, every hire is a moment of formation. The culture you build shapes the character of everyone in it. My role isn't to manage your people for you — it's to walk alongside you as a trusted pastoral and shepherding presence, helping you lead from a place of spiritual clarity and Kingdom conviction.</p>
+      <div class="space-y-4 text-muted text-base leading-relaxed mb-8">
+        <p>Every coaching conversation, every performance review, every hire is a moment of formation. The culture you build shapes the character of everyone in it. My role isn't to manage your people for you — it's to walk alongside you as a trusted guide, helping you lead from a place of spiritual clarity and Kingdom conviction.</p>
         <p>Through PurposeBound Strategies, I equip and empower leaders to steward their organizations as mission fields — building teams anchored in faith, excellence, integrity, and purpose. Not because faith is good for business, but because faithful work is inherently excellent work.</p>
       </div>
       <QuoteBlock
@@ -63,17 +63,17 @@ const base = import.meta.env.BASE_URL;
     <div class="flex items-start gap-6 mb-6">
       <img
         src={`${base}${theme.founder.photo}`}
-        alt={theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'Founder'}
+        alt={theme.founder.name}
         class="w-24 h-24 rounded-full object-cover object-top border-2 border-accent flex-shrink-0"
       />
       <h2 class="text-pb-text text-2xl font-bold self-center">
-        {theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'The Founder'}
+        {theme.founder.name}
       </h2>
     </div>
-    <div class="space-y-4 text-pb-text/80 text-sm leading-relaxed mb-10">
+    <div class="space-y-4 text-pb-text/80 text-base leading-relaxed mb-10">
       <p>For over 25 years, Tory has served at the intersection of faith, leadership, and professional excellence — as a basketball coach at Wayland Baptist University and the University of Texas at Arlington, a sales leader overseeing $20–25M in annual revenue at Brandability, and a developer of six million-dollar-plus achievers in back-to-back years. He was honored with the 2024 Facilis Cares Award, a national recognition for excellence in corporate culture and service.</p>
       <p>But underneath every role has been a single conviction: the workplace is a mission field, and every leader has the opportunity to shepherd the people in their care toward something greater than performance.</p>
-      <p>PurposeBound Strategies is the culmination of that conviction — a corporate ministry walking alongside ownership, leadership, and teams to nurture spiritual health, anchor workplace culture in Kingdom values, and help businesses become platforms for lasting impact. Tory has led two international and two domestic mission trips, founded company-wide Bible studies and corporate prayer at Brandability, and serves actively at Mid-Cities Community Church. He brings that same pastoral heart to every engagement.</p>
+      <p>PurposeBound Strategies is the culmination of that conviction — a corporate ministry walking alongside ownership, leadership, and teams to nurture spiritual health, anchor workplace culture in Kingdom values, and help businesses become platforms for lasting impact. Tory has led 34 leaders on international and domestic mission trips, founded company-wide Bible studies and corporate prayer at Brandability, and serves actively at Mid-Cities Community Church. He brings that same Kingdom-focused heart to every engagement.</p>
     </div>
     <img
       src={`${base}/images/community.jpg`}
@@ -83,9 +83,9 @@ const base = import.meta.env.BASE_URL;
     />
     <a
       href={`${base}/contact`}
-      class="inline-block bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
+      class="inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
     >
-      Book a Discovery Call
+      Start a Conversation
     </a>
   </section>
 

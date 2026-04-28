@@ -3,52 +3,51 @@
 import { theme } from '../../theme.config';
 const base = import.meta.env.BASE_URL;
 ---
-<section class="bg-rich border-b-[3px] border-accent flex items-stretch min-h-[320px]">
+<section class="bg-rich border-b-[3px] border-accent flex items-stretch min-h-[480px] relative overflow-hidden">
+  <!-- Watermark logo behind text -->
+  <img
+    src={`${base}${theme.brand.logo}`}
+    alt=""
+    aria-hidden="true"
+    class="absolute left-0 top-1/2 -translate-y-1/2 h-[90%] opacity-[0.08] object-contain pointer-events-none select-none"
+  />
+
   <!-- Left: copy + CTAs -->
-  <div class="flex-1 px-10 py-12 flex flex-col justify-center">
-    <p class="text-accent text-[10px] uppercase tracking-[0.3em] mb-4">
-      Corporate Ministry · Pastoral Coaching
+  <div class="flex-1 pl-16 pr-10 py-14 flex flex-col justify-center relative z-10">
+    <p class="text-accent text-xs uppercase tracking-[0.3em] mb-4">
+      Corporate Ministry · Workplace Discipleship · Spiritual Leadership
     </p>
-    <h1 class="text-cream font-heading text-4xl font-bold leading-tight mb-3">
+    <h1 class="text-cream font-heading text-4xl font-bold leading-tight mb-4">
       Build a Business That<br />
       Honors <span class="text-accent">Something Greater.</span>
     </h1>
-    <p class="text-muted text-sm leading-relaxed max-w-md mb-8">
+    <p class="text-muted text-base leading-relaxed max-w-md mb-8">
       For faith-driven leaders who know their organization is called to more —
       Tory walks alongside ownership and teams to cultivate spiritual health,
       Kingdom purpose, and a culture that forms people, not just drives performance.
     </p>
-    <div class="flex gap-3">
+    <div class="flex gap-3 flex-wrap">
       <a
         href={`${base}/start`}
-        class="bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
+        class="bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
       >
         Get the Free Guide
       </a>
       <a
         href={`${base}/contact`}
-        class="border border-cream text-cream text-[11px] uppercase tracking-wider px-6 py-3 hover:bg-cream hover:text-deep transition-all"
+        class="border border-cream text-cream text-xs uppercase tracking-wider px-6 py-3 hover:bg-cream hover:text-deep transition-all"
       >
-        Book a Discovery Call
+        Start a Conversation
       </a>
     </div>
   </div>
 
-  <!-- Right: logo on white field + founder photo -->
-  <div class="w-56 bg-deep flex flex-col items-center justify-between">
-    <div class="w-full bg-white px-4 py-5">
-      <img
-        src={`${base}${theme.brand.logo}`}
-        alt={theme.site.name}
-        class="w-full h-auto"
-      />
-    </div>
-    <div class="w-40 h-52 rounded-t-lg border-2 border-link border-b-0 overflow-hidden">
-      <img
-        src={`${base}${theme.founder.photo}`}
-        alt={theme.founder.name !== '[Founder Name]' ? theme.founder.name : 'Founder'}
-        class="w-full h-full object-cover object-top"
-      />
-    </div>
+  <!-- Right: founder photo full hero height -->
+  <div class="w-72 flex-shrink-0 overflow-hidden">
+    <img
+      src={`${base}${theme.founder.photo}`}
+      alt={theme.founder.name}
+      class="w-full h-full object-cover object-top"
+    />
   </div>
 </section>

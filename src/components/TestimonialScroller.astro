@@ -21,29 +21,39 @@ const { testimonials } = Astro.props;
         data-slide={i}
         style={i === 0 ? 'opacity:1;' : 'opacity:0;pointer-events:none;'}
       >
-        <div class="text-link text-4xl mb-4 font-heading">"</div>
-        <blockquote class="text-pb-text text-base font-semibold leading-relaxed max-w-xl mx-auto italic mb-4">
+        <div class="text-link text-5xl mb-4 font-heading">"</div>
+        <blockquote class="text-pb-text text-lg font-semibold leading-relaxed max-w-xl mx-auto italic mb-4">
           {t.quote}
         </blockquote>
         {t.result && (
-          <p class="text-accent text-xs font-bold uppercase tracking-wider mb-4">{t.result}</p>
+          <p class="text-accent text-sm font-bold uppercase tracking-wider mb-4">{t.result}</p>
         )}
-        <p class="text-pb-text/50 text-[11px] uppercase tracking-wider">
+        <p class="text-pb-text/50 text-xs uppercase tracking-wider">
           — {t.name}, {t.title}, {t.company}
         </p>
       </div>
     ))}
   </div>
 
-  <!-- Navigation dots -->
-  <div class="flex justify-center gap-2 mt-8">
-    {testimonials.map((_, i) => (
-      <button
-        class={`testimonial-dot w-2 h-2 rounded-full transition-colors ${i === 0 ? 'bg-accent' : 'bg-link/30'}`}
-        data-target={i}
-        aria-label={`Show testimonial ${i + 1}`}
-      />
-    ))}
+  <!-- Navigation: arrows + dots -->
+  <div class="flex items-center justify-center gap-4 mt-8">
+    <button
+      class="testimonial-prev text-deep/50 hover:text-accent transition-colors text-2xl leading-none px-2 font-bold"
+      aria-label="Previous testimonial"
+    >&#8592;</button>
+    <div class="flex gap-2">
+      {testimonials.map((_, i) => (
+        <button
+          class={`testimonial-dot w-2.5 h-2.5 rounded-full transition-colors ${i === 0 ? 'bg-accent' : 'bg-muted'}`}
+          data-target={i}
+          aria-label={`Show testimonial ${i + 1}`}
+        />
+      ))}
+    </div>
+    <button
+      class="testimonial-next text-deep/50 hover:text-accent transition-colors text-2xl leading-none px-2 font-bold"
+      aria-label="Next testimonial"
+    >&#8594;</button>
   </div>
 </section>
 
@@ -51,6 +61,8 @@ const { testimonials } = Astro.props;
   const section = document.querySelector<HTMLElement>('.testimonial-slide')!.closest('section')!;
   const slides = section.querySelectorAll<HTMLElement>('.testimonial-slide');
   const dots = section.querySelectorAll<HTMLButtonElement>('.testimonial-dot');
+  const prevBtn = section.querySelector<HTMLButtonElement>('.testimonial-prev')!;
+  const nextBtn = section.querySelector<HTMLButtonElement>('.testimonial-next')!;
   let current = 0;
   let timer: ReturnType<typeof setTimeout>;
 
@@ -58,11 +70,11 @@ const { testimonials } = Astro.props;
     slides[current].style.opacity = '0';
     slides[current].style.pointerEvents = 'none';
     dots[current].classList.remove('bg-accent');
-    dots[current].classList.add('bg-link/30');
+    dots[current].classList.add('bg-muted');
     current = ((n % slides.length) + slides.length) % slides.length;
     slides[current].style.opacity = '1';
     slides[current].style.pointerEvents = '';
-    dots[current].classList.remove('bg-link/30');
+    dots[current].classList.remove('bg-muted');
     dots[current].classList.add('bg-accent');
   }
 
@@ -74,6 +86,8 @@ const { testimonials } = Astro.props;
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => { goTo(i); schedule(); });
   });
+  prevBtn.addEventListener('click', () => { goTo(current - 1); schedule(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); schedule(); });
 
   schedule();
 </script>

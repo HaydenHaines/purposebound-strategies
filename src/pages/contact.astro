@@ -6,14 +6,14 @@ import { theme } from '../../theme.config';
 
 ---
 <Page
-  title="Book a Discovery Call"
+  title="Start a Conversation"
   description="Start a conversation about building a sales team you're proud of."
 >
 
   <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
     <SectionLabel text="Contact" light />
     <h1 class="text-cream text-4xl font-bold mb-4">Let's Have a Conversation</h1>
-    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+    <p class="text-muted text-base max-w-md mx-auto leading-relaxed">
       No pitch. No pressure. Just an honest conversation about where you are
       and whether this is the right fit.
     </p>
@@ -41,8 +41,8 @@ import { theme } from '../../theme.config';
       <div class="space-y-8">
         {theme.contact.faq.map((item) => (
           <div>
-            <h3 class="text-accent font-bold text-sm mb-2">{item.q}</h3>
-            <p class="text-muted text-sm leading-relaxed">{item.a}</p>
+            <h3 class="text-accent font-bold text-base mb-2">{item.q}</h3>
+            <p class="text-muted text-base leading-relaxed">{item.a}</p>
           </div>
         ))}
       </div>

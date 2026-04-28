@@ -7,7 +7,7 @@ export const theme = {
     name: 'PurposeBound Strategies',
     tagline: 'Equipping Leaders for Marketplace Ministry.',
     description:
-      'Corporate ministry and pastoral coaching for faith-driven leaders committed to bringing the Kingdom into the marketplace.',
+      'Corporate ministry and Kingdom-focused coaching for faith-driven leaders committed to bringing the Kingdom into the marketplace.',
     url: 'https://purposeboundstrategies.com', // DEBT: update when domain is confirmed
   },
   founder: {
@@ -37,7 +37,7 @@ export const theme = {
   metrics: [
     { value: '25+', label: 'Years of Experience' },
     { value: '6',   label: 'Million-Dollar Leaders Developed' },
-    { value: '4',   label: 'Mission Trips Led' },
+    { value: '34',  label: 'Leaders Led on Mission Trips' },
   ],
   nav: [
     { label: 'About', href: '/about' },
@@ -80,18 +80,18 @@ export const theme = {
       },
       {
         title: 'Walk Together',
-        body: "A pastoral engagement shaped around your people, your culture, and the specific work God seems to be calling your organization into.",
+        body: "An engagement shaped around your people, your culture, and the specific work God seems to be calling your organization into.",
       },
       {
-        title: 'Lead with Purpose',
-        body: "Ongoing presence, accountability, and equipping — helping your business become not just a place of work, but a mission field and a platform for lasting Kingdom impact.",
+        title: 'Stop Building Alone',
+        body: "Ongoing presence, accountability, and equipping — because the most meaningful work isn't meant to be done in isolation.",
       },
     ],
   },
   contact: {
     faq: [
       {
-        q: 'What happens on the discovery call?',
+        q: 'What happens on the call?',
         a: "We talk honestly about where your organization is, what you're sensing God may be calling it toward, and whether a coaching relationship makes sense. There's no pitch — just a real conversation.",
       },
       {
@@ -100,7 +100,7 @@ export const theme = {
       },
       {
         q: 'Who is this for?',
-        a: "Faith-driven business owners, executives, and leaders who sense their organization has a higher calling — and want a trusted pastoral presence to help build it.",
+        a: "Faith-driven business owners, executives, and leaders who sense their organization has a higher calling — and want a trusted guide to help them build it.",
       },
       {
         q: 'What happens after the call?',

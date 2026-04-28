@@ -2,25 +2,34 @@
 // src/components/HowItWorks.astro
 import SectionLabel from './SectionLabel.astro';
 import { theme } from '../../theme.config';
+const base = import.meta.env.BASE_URL;
 ---
 <section class="bg-rich px-10 py-14">
   <div class="text-center mb-10">
     <SectionLabel text="How It Works" light />
   </div>
-  <div class="flex items-start justify-center gap-6 max-w-3xl mx-auto">
+  <div class="flex items-start justify-center gap-6 max-w-3xl mx-auto mb-12">
     {theme.howItWorks.steps.map((step, i) => (
       <>
         {i > 0 && (
           <div class="text-muted text-2xl mt-4 flex-shrink-0">→</div>
         )}
-        <div class="flex-1 text-center max-w-[200px]">
-          <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 text-deep font-bold text-sm">
+        <div class="flex-1 text-center max-w-[220px]">
+          <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 text-deep font-bold text-sm">
             {i + 1}
           </div>
-          <h3 class="text-cream font-bold text-sm mb-2">{step.title}</h3>
-          <p class="text-muted text-xs leading-relaxed">{step.body}</p>
+          <h3 class="text-cream font-bold text-base mb-2">{step.title}</h3>
+          <p class="text-muted text-sm leading-relaxed">{step.body}</p>
         </div>
       </>
     ))}
+  </div>
+  <div class="text-center">
+    <a
+      href={`${base}/contact`}
+      class="inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
+    >
+      Start a Conversation
+    </a>
   </div>
 </section>
