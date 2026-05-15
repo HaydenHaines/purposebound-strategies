@@ -14,5 +14,6 @@
   ],
   "cta": "Start the Conversation",
   "limited": true,
+  "icon": "building",
   "order": 2
 }

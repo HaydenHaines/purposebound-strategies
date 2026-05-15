@@ -14,5 +14,6 @@
   ],
   "cta": "Start the Conversation",
   "limited": false,
+  "icon": "shepherd",
   "order": 1
 }

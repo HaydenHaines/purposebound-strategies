@@ -30,4 +30,9 @@ describe('service seed data', () => {
     expect(consulting).toHaveProperty('limited');
     expect(consulting.limited).toBe(true);
   });
+
+  it('coaching has an icon identifier', () => {
+    expect(coaching).toHaveProperty('icon');
+    expect(typeof coaching.icon).toBe('string');
+  });
 });

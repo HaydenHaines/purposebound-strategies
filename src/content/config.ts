@@ -35,6 +35,7 @@ const services = defineCollection({
     includes: z.array(z.string()),
     cta: z.string().default("Let's Talk"),
     limited: z.boolean().default(false), // true = show "Currently accepting limited engagements"
+    icon: z.enum(['shepherd', 'building']).optional(),
     order: z.number(),
   }),
 });
