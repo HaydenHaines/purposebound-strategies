@@ -40,6 +40,11 @@ export const theme = {
     { value: '6',   label: 'Million-Dollar Leaders Developed' },
     { value: '34',  label: 'Leaders Led on Mission Trips' },
   ],
+  benefits: [
+    { text: 'Form People, Not Just Drive Performance' },
+    { text: 'Cultivate Spiritual Health' },
+    { text: 'Anchor Culture in Kingdom Conviction' },
+  ],
   nav: [
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },

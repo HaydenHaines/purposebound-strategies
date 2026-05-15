@@ -17,6 +17,10 @@ describe('theme.config', () => {
     expect(theme.leadMagnet.title.length).toBeGreaterThan(0);
   });
 
+  it('has exactly 3 benefits', () => {
+    expect(theme.benefits).toHaveLength(3);
+  });
+
   it('has Oswald as display font', () => {
     expect(theme.brand.fonts.display[0]).toBe('Oswald');
   });
