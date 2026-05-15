@@ -135,19 +135,19 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- Photo Banner -->
-  <div class="relative h-72 overflow-hidden">
+  <div class="relative h-[420px] overflow-hidden">
     <img
       src={`${base}/images/mission-group.jpg`}
       alt="Group on mission trip"
-      class="w-full h-full object-cover object-center"
+      class="w-full h-full object-cover object-top"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-deep/85 flex flex-col items-center justify-center text-center px-10">
-      <p class="font-inter text-accent text-xs uppercase tracking-[0.3em] mb-4">Ministry in the Marketplace</p>
-      <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl">
+    <div class="absolute inset-0 bg-gradient-to-b from-deep/30 via-deep/65 to-deep/90 flex flex-col items-center justify-center text-center px-10">
+      <p class="font-inter text-accent text-xs uppercase tracking-[0.3em] mb-4" style="text-shadow: 0 1px 6px rgba(0,0,0,0.9);">Ministry in the Marketplace</p>
+      <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">
         Faith Doesn't Stop at the Office Door.
       </p>
-      <p class="text-cream/70 text-base mt-4 max-w-lg">
+      <p class="text-cream/80 text-base mt-4 max-w-lg" style="text-shadow: 0 1px 6px rgba(0,0,0,0.9);">
         34 leaders brought from their desks to the mission field — and back again, changed.
       </p>
     </div>

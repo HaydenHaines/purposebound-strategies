@@ -3,12 +3,14 @@
 import { theme } from '../../theme.config';
 ---
 {theme.credibility.length > 0 && (
-  <div class="bg-cream border-y border-muted/30 px-8 py-3 flex justify-center items-center gap-6 overflow-hidden">
-    <span class="text-muted text-[9px] uppercase tracking-[0.2em]">{theme.credibilityLabel}</span>
-    {theme.credibility.map((item) => (
-      item.url
-        ? <a href={item.url} class="text-muted text-xs hover:text-link transition-colors">{item.name}</a>
-        : <span class="text-muted text-xs">{item.name}</span>
-    ))}
+  <div class="bg-cream border-y border-muted/30 px-8 py-5 text-center">
+    <p class="text-pb-text/50 text-[9px] uppercase tracking-[0.25em] mb-3">{theme.credibilityLabel}</p>
+    <div class="flex justify-center items-center gap-8 flex-wrap">
+      {theme.credibility.map((item) => (
+        item.url
+          ? <a href={item.url} class="text-pb-text/70 text-sm hover:text-link transition-colors">{item.name}</a>
+          : <span class="text-pb-text/70 text-sm">{item.name}</span>
+      ))}
+    </div>
   </div>
 )}
