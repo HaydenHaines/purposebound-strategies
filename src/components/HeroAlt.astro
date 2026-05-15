@@ -4,19 +4,19 @@ import { theme } from '../../theme.config';
 const base = import.meta.env.BASE_URL;
 ---
 <section class="border-b-[3px] border-accent min-h-[520px] relative overflow-hidden bg-gradient-to-br from-deep via-rich to-deep flex items-center">
-  <!-- Logo as full-width background watermark -->
+  <!-- Logo as full-width background watermark — screen blend makes dark pixels vanish, light pixels glow -->
   <img
     src={`${base}${theme.brand.logo}`}
     alt=""
     aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-contain opacity-[0.10] pointer-events-none select-none"
+    class="absolute inset-0 w-full h-full object-contain opacity-30 mix-blend-screen pointer-events-none select-none"
   />
-  <!-- Gradient overlay to keep text contrast clean -->
-  <div class="absolute inset-0 bg-gradient-to-r from-deep/90 via-deep/60 to-transparent pointer-events-none"></div>
+  <!-- Subtle left-side fade to keep headline text clean -->
+  <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-deep/70 to-transparent pointer-events-none z-[1]"></div>
 
   <!-- Text content -->
   <div class="relative z-10 pl-16 pr-10 py-16 flex flex-col justify-center max-w-3xl">
-    <p class="font-inter text-accent text-xs uppercase tracking-[0.3em] mb-5">
+    <p class="font-inter text-accent text-xs uppercase tracking-[0.3em] mb-5 whitespace-nowrap">
       Corporate Ministry · Workplace Discipleship · Spiritual Leadership
     </p>
     <h1 class="font-display uppercase text-cream font-bold leading-none mb-6" style="font-size: clamp(2.8rem, 6vw, 5rem); letter-spacing: 0.02em;">
