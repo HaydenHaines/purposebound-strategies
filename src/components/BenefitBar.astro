@@ -1,0 +1,17 @@
+---
+// src/components/BenefitBar.astro
+import { theme } from '../../theme.config';
+---
+<div class="bg-accent px-8 py-5 flex flex-wrap justify-center items-center gap-x-10 gap-y-3">
+  {theme.benefits.map((benefit, i) => (
+    <>
+      {i > 0 && <span class="text-deep/40 hidden sm:inline">|</span>}
+      <div class="flex items-center gap-2">
+        <span class="text-deep text-lg font-bold leading-none">✓</span>
+        <span class="font-display uppercase text-deep font-bold tracking-wide text-sm">
+          {benefit.text}
+        </span>
+      </div>
+    </>
+  ))}
+</div>
