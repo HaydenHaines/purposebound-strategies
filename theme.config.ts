@@ -55,10 +55,13 @@ export const theme = {
     linkedin: '', // add when available
     twitter: '',  // add when available
   },
+  credibilityLabel: 'Credentials & Recognition',
   credibility: [
     { name: '2024 Facilis Cares Award', url: '' },
-    { name: 'Destiny Missions', url: '' },
-    { name: 'Mid-Cities Community Church', url: '' },
+    { name: '$20–25M Revenue Oversight', url: '' },
+    { name: 'International & Domestic Mission Leadership', url: '' },
+    { name: '2 TAPPS State Championships', url: '' },
+    { name: 'M.S. Leadership & Professional Development', url: '' },
   ],
   leadMagnet: {
     title: 'The 5 Pillars of a Christ-Centered Sales Culture',

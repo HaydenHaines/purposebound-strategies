@@ -4,7 +4,7 @@ import { theme } from '../../theme.config';
 ---
 {theme.credibility.length > 0 && (
   <div class="bg-cream border-y border-muted/30 px-8 py-4 flex justify-center items-center gap-10 flex-wrap">
-    <span class="text-muted text-[9px] uppercase tracking-[0.2em]">As Featured In</span>
+    <span class="text-muted text-[9px] uppercase tracking-[0.2em]">{theme.credibilityLabel}</span>
     {theme.credibility.map((item) => (
       item.url
         ? <a href={item.url} class="text-muted text-xs hover:text-link transition-colors">{item.name}</a>
