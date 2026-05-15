@@ -32,6 +32,7 @@ export const theme = {
     fonts: {
       heading: ['Georgia', '"Times New Roman"', 'serif'],
       body: ['Georgia', '"Times New Roman"', 'serif'],
+      display: ['Oswald', 'Georgia', 'serif'],
     },
   },
   metrics: [

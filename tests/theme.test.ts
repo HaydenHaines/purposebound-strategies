@@ -17,6 +17,10 @@ describe('theme.config', () => {
     expect(theme.leadMagnet.title.length).toBeGreaterThan(0);
   });
 
+  it('has Oswald as display font', () => {
+    expect(theme.brand.fonts.display[0]).toBe('Oswald');
+  });
+
   it('uses logo-aligned palette values', () => {
     const c = theme.brand.colors;
     expect(c.deep).toBe('#132240');

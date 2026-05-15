@@ -16,9 +16,10 @@ export default {
         // Use: text-pb-text, bg-cream, text-accent, etc.
       },
       fontFamily: {
-        heading: ['Georgia', '"Times New Roman"', 'serif'],
-        body:    ['Georgia', '"Times New Roman"', 'serif'],
-        inter:   ['Inter', 'system-ui', 'sans-serif'],
+        heading:  ['Georgia', '"Times New Roman"', 'serif'],
+        body:     ['Georgia', '"Times New Roman"', 'serif'],
+        inter:    ['Inter', 'system-ui', 'sans-serif'],
+        display:  ['Oswald', 'Georgia', 'serif'],
       },
       letterSpacing: {
         widest: '0.2em',
