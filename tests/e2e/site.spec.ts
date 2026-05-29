@@ -17,7 +17,7 @@ test.describe('Homepage', () => {
 
   test('secondary CTA links to /contact', async ({ page }) => {
     await page.goto(r('/'));
-    const cta = page.getByRole('link', { name: /Start a Conversation/i }).first();
+    const cta = page.getByRole('link', { name: /Let's Talk/i }).first();
     await expect(cta).toHaveAttribute('href', r('/contact'));
   });
 
@@ -40,9 +40,9 @@ test.describe('/about page', () => {
     await expect(page.locator('h1')).toContainText('What I Believe');
   });
 
-  test('has a start a conversation CTA', async ({ page }) => {
+  test('has a let\'s talk CTA', async ({ page }) => {
     await page.goto(r('/about'));
-    const cta = page.getByRole('link', { name: /Start a Conversation/i }).first();
+    const cta = page.getByRole('link', { name: /Let's Talk/i }).first();
     await expect(cta).toHaveAttribute('href', r('/contact'));
   });
 });
@@ -69,7 +69,7 @@ test.describe('/thank-you page', () => {
   test('shows confirmation and Calendly CTA', async ({ page }) => {
     await page.goto(r('/thank-you'));
     await expect(page.locator('h1')).toContainText('on its way');
-    const cta = page.getByRole('link', { name: /Start a Conversation/i });
+    const cta = page.getByRole('link', { name: /Let's Talk/i });
     await expect(cta).toBeVisible();
   });
 

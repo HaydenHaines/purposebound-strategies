@@ -41,9 +41,9 @@ export const theme = {
     { value: '34',  label: 'Leaders Led on Mission Trips' },
   ],
   benefits: [
-    { text: 'Form People, Not Just Drive Performance' },
+    { text: 'Shepherd Hearts, Not Just Systems' },
     { text: 'Cultivate Spiritual Health' },
-    { text: 'Anchor Culture in Kingdom Conviction' },
+    { text: 'Tend The Souls In Your Organization' },
   ],
   nav: [
     { label: 'About', href: '/about' },
@@ -65,7 +65,8 @@ export const theme = {
   credibility: [
     { name: '2024 Facilis Cares Award', url: '' },
     { name: '$20–25M Revenue Oversight', url: '' },
-    { name: 'International & Domestic Mission Leadership', url: '' },
+    { name: 'Domestic & International Mission Leadership', url: '' },
+    { name: 'Ministry Integration & Operational Leadership', url: '' },
     { name: '2 TAPPS State Championships', url: '' },
     { name: 'M.S. Leadership & Professional Development', url: '' },
   ],
@@ -84,7 +85,7 @@ export const theme = {
   howItWorks: {
     steps: [
       {
-        title: 'Start the Conversation',
+        title: "Let's Talk",
         body: "A candid conversation about where your organization is, where you sense it's called to go, and whether Tory is the right fit for that journey. No pitch — just discernment.",
       },
       {
