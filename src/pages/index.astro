@@ -2,87 +2,121 @@
 // src/pages/index.astro
 import Page from '../layouts/Page.astro';
 import SectionLabel from '../components/SectionLabel.astro';
-import Hero from '../components/Hero.astro';
-import MetricsBar from '../components/MetricsBar.astro';
+import HeroAlt from '../components/HeroAlt.astro';
+import BenefitBar from '../components/BenefitBar.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import CredibilityBar from '../components/CredibilityBar.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
 import LeadMagnetForm from '../components/LeadMagnetForm.astro';
-import TestimonialScroller from '../components/TestimonialScroller.astro';
+import TestimonialGrid from '../components/TestimonialGrid.astro';
+import ServiceIconCard from '../components/ServiceIconCard.astro';
 import { theme } from '../../theme.config';
 import { getCollection } from 'astro:content';
 
 const testimonialEntries = await getCollection('testimonials');
-// Featured first, then rest in collection order
 const testimonials = testimonialEntries
   .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0))
   .map(e => e.data);
+
+const serviceEntries = await getCollection('services');
+const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
+
 const base = import.meta.env.BASE_URL;
 ---
 <Page title="Sales Coaching & Consulting | Grounded in Faith">
 
-  <Hero />
-  <MetricsBar />
+  <HeroAlt />
+  <BenefitBar />
 
-  <!-- Who I Work With + The Problem — side by side -->
-  <section class="bg-cream border-b border-muted/20">
-    <div class="grid md:grid-cols-2">
-      <div class="px-10 py-14 text-center border-r border-muted/20">
-        <SectionLabel text="Who I Work With" />
-        <h2 class="text-pb-text text-2xl font-bold mb-4 leading-snug">
-          Leaders who know their business was made for more.
+  <!-- Who I Work With + The Problem — gold section with navy cards -->
+  <section class="bg-accent clip-diag-bottom">
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-10 pt-14 pb-4">
+      <div class="bg-deep px-8 py-10">
+        <SectionLabel text="Who I Work With" light />
+        <h2 class="font-display uppercase text-cream text-3xl font-bold mb-4 leading-tight">
+          Leaders Who Know Their Business Was Made for More.
         </h2>
-        <p class="text-pb-text/70 text-base leading-relaxed">
+        <p class="text-muted text-base leading-relaxed">
           If you're carrying the weight of your organization's culture — and quietly wondering if there's someone who can help you tend the souls in your care, not just the systems — you're exactly who this is for.
         </p>
       </div>
-      <div class="border-l-4 border-accent px-10 py-14 text-left">
-        <SectionLabel text="The Problem" />
-        <h2 class="text-pb-text text-2xl font-bold leading-snug mb-4">
-          You can build a thriving business and still lose your people. Metrics don't shepherd hearts. Systems don't tend souls. The marketplace is the largest mission field in the world — and it's desperate for leaders who know it.
+      <div class="bg-deep border-l-4 border-accent px-8 py-10">
+        <SectionLabel text="The Problem" light />
+        <h2 class="font-display uppercase text-cream text-3xl font-bold leading-tight mb-4">
+          You Can Build a Thriving Business and Still Lose Your People.
         </h2>
-        <p class="text-pb-text/70 text-base leading-relaxed">
-          If you sense there's more — for your people, your culture, your calling — PurposeBound Strategies was built for you.
+        <p class="text-muted text-base leading-relaxed">
+          Metrics don't shepherd hearts. Systems don't tend souls. If you sense there's more — for your people, your culture, your calling — PurposeBound Strategies was built for you.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Meet Tory -->
-  <section class="bg-deep px-10 py-16">
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-14 items-center">
-      <div>
-        <SectionLabel text="Meet Tory" light />
-        <blockquote class="text-cream text-2xl font-bold leading-snug italic mb-6">
-          "For 25 years I've watched leaders build thriving organizations while slowly losing what matters most. That gap is exactly where I work."
-        </blockquote>
-        <p class="text-muted text-base leading-relaxed mb-8">
-          Sales leader, coach, and Kingdom-minded guide — led six million-dollar producers, high school and collegiate athletes, 34 leaders taken from their desks to the mission field, and 25 years living at the intersection of faith and excellence.
-        </p>
-        <a
-          href={`${base}/about`}
-          class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
-        >
-          Read His Story
-        </a>
-      </div>
+  <!-- Meet Tory — white 50/50 Bergman founder block -->
+  <section class="bg-cream clip-diag-top">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 items-stretch px-10 py-16">
       <div class="overflow-hidden">
         <img
           src={`${base}${theme.founder.photo}`}
           alt={theme.founder.name}
-          class="w-full aspect-square object-cover object-top"
+          class="w-full h-full object-cover object-top"
           loading="lazy"
         />
+      </div>
+      <div class="flex flex-col justify-center pl-12">
+        <SectionLabel text="Meet Tory" />
+        <h2 class="font-display uppercase text-pb-text text-4xl font-bold leading-none mb-6">
+          Hi, I'm Tory.
+        </h2>
+        <p class="text-pb-text/70 text-base leading-relaxed mb-4">
+          Sales leader, coach, and Kingdom-minded guide — led six million-dollar producers, high school and collegiate athletes, 34 leaders taken from their desks to the mission field, and 25 years living at the intersection of faith and excellence.
+        </p>
+        <blockquote class="border-l-4 border-accent pl-5 py-1 mb-8">
+          <p class="text-pb-text/80 text-base font-bold italic leading-relaxed">
+            "For 25 years I've watched leaders build thriving organizations while slowly losing what matters most. That gap is exactly where I work."
+          </p>
+        </blockquote>
+        <a
+          href={`${base}/about`}
+          class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all self-start"
+        >
+          Read His Story
+        </a>
       </div>
     </div>
   </section>
 
   <HowItWorks />
+
+  <!-- Services — gold section, icon cards -->
+  <section class="bg-accent px-10 py-16">
+    <div class="text-center mb-10">
+      <SectionLabel text="Services" />
+      <h2 class="font-display uppercase text-deep text-4xl font-bold leading-none">
+        How We Work Together
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {services.map((service) => (
+        <ServiceIconCard
+          title={service.data.title}
+          tagline={service.data.tagline}
+          description={service.data.description}
+          whoItIsFor={service.data.whoItIsFor}
+          includes={service.data.includes}
+          cta={service.data.cta ?? "Let's Talk"}
+          limited={service.data.limited}
+          icon={service.data.icon}
+        />
+      ))}
+    </div>
+  </section>
+
   <CredibilityBar />
 
   <!-- Bold accent callout -->
   <section class="bg-accent px-10 py-16 text-center">
-    <p class="text-deep text-4xl font-bold leading-tight max-w-2xl mx-auto">
+    <p class="font-display uppercase text-deep text-5xl font-bold leading-none max-w-2xl mx-auto" style="letter-spacing: 0.02em;">
       The Workplace Is a Mission Field.
     </p>
     <p class="text-deep/70 text-base mt-5 max-w-lg mx-auto leading-relaxed">
@@ -90,22 +124,24 @@ const base = import.meta.env.BASE_URL;
     </p>
   </section>
 
-  <!-- Photo Banner: Ministry in the Marketplace -->
-  <div class="relative h-72 overflow-hidden">
-    <img
-      src={`${base}/images/mission-group.jpg`}
-      alt="Group on mission trip"
-      class="w-full h-full object-cover object-center"
-      loading="lazy"
-    />
-    <div class="absolute inset-0 bg-deep/65 flex flex-col items-center justify-center text-center px-10">
-      <p class="text-accent text-xs uppercase tracking-[0.3em] mb-4">Ministry in the Marketplace</p>
-      <p class="text-cream text-2xl font-bold max-w-xl leading-snug">
-        Faith doesn't stop at the office door.
-      </p>
-      <p class="text-muted text-base mt-4 max-w-lg">
-        34 leaders brought from their desks to the mission field — and back again, changed.
-      </p>
+  <!-- Photo Banner -->
+  <div class="bg-cream px-10 py-6">
+    <div class="relative h-[420px] overflow-hidden mx-auto" style="max-width: 64rem;">
+      <img
+        src={`${base}/images/mission-group.jpg`}
+        alt="Group on mission trip"
+        class="w-full h-full object-cover object-center"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-deep/20 via-deep/70 to-deep/95 flex flex-col items-center justify-center text-center px-10">
+        <p class="font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5 inline-block">Ministry in the Marketplace</p>
+        <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl" style="text-shadow: 0 2px 12px rgba(0,0,0,1);">
+          Faith Doesn't Stop at the Office Door.
+        </p>
+        <p class="text-cream text-base mt-4 max-w-lg" style="text-shadow: 0 1px 8px rgba(0,0,0,1);">
+          34 leaders brought from their desks to the mission field — and back again, changed.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -128,19 +164,11 @@ const base = import.meta.env.BASE_URL;
   <!-- Lead Magnet CTA -->
   <section class="bg-rich border-t-[3px] border-accent px-10 py-14 text-center">
     <SectionLabel text="Free Resource" light />
-    <h2 class="text-cream text-2xl font-bold mb-3">{theme.leadMagnet.title}</h2>
+    <h2 class="font-display uppercase text-cream text-3xl font-bold mb-3">{theme.leadMagnet.title}</h2>
     <p class="text-muted text-base mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>
     <LeadMagnetForm />
   </section>
 
-  <!-- Testimonials -->
-  <TestimonialScroller testimonials={testimonials} />
-
-  <!-- Design preview link — remove when redesign is approved and swapped in -->
-  <div class="bg-deep/60 px-8 py-3 text-center border-t border-muted/20">
-    <a href={`${base}/alt`} class="font-inter text-muted text-xs uppercase tracking-widest hover:text-accent transition-colors">
-      View Alternative Design →
-    </a>
-  </div>
+  <TestimonialGrid testimonials={testimonials} />
 
 </Page>
