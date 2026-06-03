@@ -3,8 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://HaydenHaines.github.io',
-  base: '/purposebound-strategies',
+  site: 'https://subtle-starlight-aab9cb.netlify.app',
   integrations: [tailwind(), sitemap()],
   devToolbar: { enabled: false },
 });
