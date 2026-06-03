@@ -11,7 +11,6 @@ interface Props {
   icon?: string;
 }
 const { title, tagline, description, whoItIsFor, includes, cta, limited, icon } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 <div class="bg-deep p-8 flex flex-col items-center text-center">
   {icon === 'shepherd' && (
@@ -51,7 +50,7 @@ const base = import.meta.env.BASE_URL;
     </p>
   )}
   <a
-    href={`${base}/contact`}
+    href={`/contact`}
     class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 text-center hover:brightness-110 transition-all"
   >
     {cta}

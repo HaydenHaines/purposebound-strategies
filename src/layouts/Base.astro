@@ -15,7 +15,6 @@ const {
 const pageTitle = title === theme.site.name
   ? theme.site.name
   : `${title} | ${theme.site.name}`;
-const base = import.meta.env.BASE_URL;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +23,8 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
-    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
-    <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
+    <link rel="icon" type="image/svg+xml" href={`/favicon.svg`} />
+    <link rel="sitemap" href={`/sitemap-index.xml`} />
     <!-- Preload Georgia — it's a system font, no external load needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

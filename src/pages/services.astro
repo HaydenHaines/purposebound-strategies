@@ -8,7 +8,6 @@ import { getCollection } from 'astro:content';
 const services = await getCollection('services');
 // Sort by order field so coaching (1) appears before consulting (2)
 const sorted = services.sort((a, b) => a.data.order - b.data.order);
-const base = import.meta.env.BASE_URL;
 ---
 <Page
   title="Services"
@@ -49,7 +48,7 @@ const base = import.meta.env.BASE_URL;
       Tell me where you are, what you're carrying, and we'll figure out together if this is the right fit.
     </p>
     <a
-      href={`${base}/contact`}
+      href={`/contact`}
       class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
     >
       Let's Talk
