@@ -3,17 +3,14 @@
 import { theme } from '../../theme.config';
 const base = import.meta.env.BASE_URL;
 ---
-<section class="border-b-[3px] border-accent min-h-[520px] relative overflow-hidden bg-deep flex items-center">
-  <!-- Hero background image -->
+<section class="border-b-[3px] border-accent min-h-[520px] relative overflow-hidden bg-gradient-to-br from-deep via-rich to-deep flex items-center">
+  <!-- Hero image: right-aligned, contained, smaller watermark style -->
   <img
     src={`${base}/images/hero.png`}
     alt=""
     aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none z-[0]"
+    class="absolute right-0 inset-y-0 w-[50%] h-full object-contain object-right pointer-events-none select-none z-[1]"
   />
-
-  <!-- Gradient overlay for text legibility -->
-  <div class="absolute inset-0 bg-gradient-to-r from-deep/95 via-deep/70 to-deep/20 z-[1]"></div>
 
   <!-- Text content: z-10 always on top -->
   <div class="relative z-10 pl-16 pr-10 py-16 flex flex-col justify-center max-w-3xl">
