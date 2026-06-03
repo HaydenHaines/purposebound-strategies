@@ -58,8 +58,8 @@ export const theme = {
     webhookUrl: '',
   },
   social: {
-    facebook: '', // DEBT: add real URL e.g. https://facebook.com/purposeboundstrategies
-    linkedin: '', // DEBT: add real URL e.g. https://linkedin.com/in/torybryant
+    facebook: 'https://www.facebook.com/tory.bryant.50',
+    linkedin: 'https://www.linkedin.com/in/tory-bryant-84197973/',
   },
   credibilityLabel: 'Credentials & Recognition',
   credibility: [
