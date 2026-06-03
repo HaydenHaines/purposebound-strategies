@@ -1,6 +1,4 @@
 ---
-// src/pages/alt.astro — redirects to homepage now that the alt design is live
-import { getEntry } from 'astro:content';
-const base = import.meta.env.BASE_URL;
-return Astro.redirect(`${base}/`);
+// src/pages/alt.astro — alt design is now live as the homepage
+return Astro.redirect('/');
 ---
