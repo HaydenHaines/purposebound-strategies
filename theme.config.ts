@@ -67,13 +67,15 @@ export const theme = {
     { name: '$20–25M Revenue Oversight', url: '' },
     { name: 'Domestic & International Mission Leadership', url: '' },
     { name: 'Ministry Integration & Operational Leadership', url: '' },
-    { name: '2 TAPPS State Championships', url: '' },
+    { name: '25+ Years Building Leaders, Teams, and Kingdom Impact | 250+ People Developed', url: '' },
     { name: 'M.S. Leadership & Professional Development', url: '' },
   ],
   leadMagnet: {
     title: 'The 5 Pillars of a Christ-Centered Sales Culture',
     description:
       'A practical framework for faith-driven leaders who want to build something that lasts.',
+    // Gated download — delivered on /thank-you after the capture form is submitted.
+    file: '/5-pillars-christ-centered-sales-culture.pdf',
     bullets: [
       'The biblical foundation for ethical selling',
       'How to build a team culture rooted in integrity',

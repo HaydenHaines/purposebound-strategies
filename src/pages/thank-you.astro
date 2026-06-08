@@ -9,26 +9,39 @@ import { theme } from '../../theme.config';
     <div class="max-w-lg mx-auto">
       <p class="text-accent text-[10px] uppercase tracking-[0.3em] mb-6">You're In</p>
       <h1 class="text-cream text-3xl font-bold mb-6">
-        Your guide is on its way.
+        Your guide is ready.
       </h1>
-      <p class="text-muted text-base leading-relaxed mb-4">
-        Check your inbox — the guide will arrive in the next few minutes.
-        If you don't see it, check your spam folder.
+      <p class="text-muted text-base leading-relaxed mb-8">
+        Click below to download <em>{theme.leadMagnet.title}</em> right now.
+        We've also saved your details so Tory can follow up personally.
       </p>
-      <p class="text-muted text-base leading-relaxed mb-12">
-        In the meantime — if you're ready to talk about what building a
-        Christ-centered sales team looks like for you specifically, I'd
-        love to have that conversation.
-      </p>
+
+      <!-- Primary action: the gated download -->
       <a
-        href={theme.calendly.url}
-        class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
-        target="_blank"
-        rel="noopener noreferrer"
+        href={theme.leadMagnet.file}
+        download
+        class="font-inter inline-block bg-accent text-deep text-sm font-bold uppercase tracking-wider px-10 py-4 hover:brightness-110 transition-all"
       >
-        Let's Talk
+        Download the Guide
       </a>
-      <p class="text-muted/60 text-[10px] mt-4">No pressure. Just a conversation.</p>
+      <p class="text-muted/60 text-[10px] mt-4">PDF · opens or saves to your device.</p>
+
+      <div class="border-t border-muted/20 mt-12 pt-10">
+        <p class="text-muted text-base leading-relaxed mb-6">
+          And if you're ready to talk about what building a Christ-centered
+          sales culture looks like for you specifically, I'd love to have
+          that conversation.
+        </p>
+        <a
+          href={theme.calendly.url}
+          class="font-inter inline-block border border-cream text-cream text-xs font-bold uppercase tracking-wider px-8 py-4 hover:bg-cream hover:text-deep transition-all"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Let's Talk
+        </a>
+        <p class="text-muted/60 text-[10px] mt-4">No pressure. Just a conversation.</p>
+      </div>
     </div>
   </section>
 </Bare>

@@ -1,7 +1,11 @@
 ---
 // src/components/LeadMagnetForm.astro
 // Netlify Forms: Netlify detects data-netlify="true" during build and wires up the form handler.
-// No backend needed. Submission redirects to /thank-you.
+// No backend needed. On submit, Netlify records the lead and redirects to /thank-you,
+// where the visitor is given the gated PDF download.
+//
+// IMPORTANT (see CLAUDE.md gotcha #1): the hidden form-name input MUST match the form's
+// name attribute, and every field that should be captured must be present in the built HTML.
 
 interface Props {
   formName?: string; // must match the hidden form-name input
@@ -10,8 +14,11 @@ interface Props {
 
 const {
   formName = 'lead-magnet',
-  buttonText = 'Get It Free',
+  buttonText = 'Get the Free Guide',
 } = Astro.props;
+
+const fieldClass =
+  'w-full px-4 py-3 bg-cream text-pb-text text-sm placeholder:text-muted/70 border-none outline-none focus:ring-2 focus:ring-accent';
 ---
 <form
   name={formName}
@@ -19,7 +26,7 @@ const {
   action={`/thank-you`}
   data-netlify="true"
   netlify-honeypot="bot-field"
-  class="flex gap-2 justify-center max-w-md mx-auto"
+  class="flex flex-col gap-3 max-w-md mx-auto text-left"
 >
   <!-- Netlify requires a hidden form-name field when using data-netlify -->
   <input type="hidden" name="form-name" value={formName} />
@@ -27,21 +34,61 @@ const {
   <p class="hidden" aria-hidden="true">
     <label>Don't fill this out: <input name="bot-field" /></label>
   </p>
+
+  <input
+    type="text"
+    name="name"
+    required
+    autocomplete="name"
+    placeholder="Full name"
+    class={fieldClass}
+    aria-label="Full name"
+  />
+  <input
+    type="text"
+    name="business"
+    required
+    autocomplete="organization"
+    placeholder="Business name"
+    class={fieldClass}
+    aria-label="Business name"
+  />
+  <input
+    type="number"
+    name="employees"
+    required
+    min="1"
+    inputmode="numeric"
+    placeholder="Number of employees in your department"
+    class={fieldClass}
+    aria-label="Number of employees in your department"
+  />
   <input
     type="email"
     name="email"
     required
-    placeholder="Your email address"
-    class="flex-1 px-4 py-3 bg-cream text-pb-text text-sm placeholder:text-muted/70 border-none outline-none focus:ring-2 focus:ring-accent"
+    autocomplete="email"
+    placeholder="Email address"
+    class={fieldClass}
     aria-label="Email address"
   />
+  <input
+    type="tel"
+    name="phone"
+    required
+    autocomplete="tel"
+    placeholder="Phone number"
+    class={fieldClass}
+    aria-label="Phone number"
+  />
+
   <button
     type="submit"
-    class="bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-5 py-3 whitespace-nowrap hover:brightness-110 transition-all"
+    class="mt-1 bg-accent text-deep text-[11px] font-bold uppercase tracking-wider px-5 py-3 whitespace-nowrap hover:brightness-110 transition-all"
   >
     {buttonText}
   </button>
 </form>
 <p class="text-center text-muted text-[10px] mt-3 tracking-wide">
-  No spam, ever. Unsubscribe anytime.
+  Your guide downloads instantly after you submit. No spam, ever.
 </p>

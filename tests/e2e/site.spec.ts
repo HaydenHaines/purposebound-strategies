@@ -63,12 +63,22 @@ test.describe('Lead Magnet Form', () => {
     const emailInput = page.locator('input[type="email"]');
     await expect(emailInput).toHaveAttribute('required');
   });
+
+  test('captures full contact details', async ({ page }) => {
+    await page.goto(r('/start'));
+    const form = page.locator('form[name="lead-magnet"]');
+    for (const field of ['name', 'business', 'employees', 'email', 'phone']) {
+      await expect(form.locator(`input[name="${field}"]`)).toHaveAttribute('required');
+    }
+  });
 });
 
 test.describe('/thank-you page', () => {
-  test('shows confirmation and Calendly CTA', async ({ page }) => {
+  test('shows the gated download and a Calendly CTA', async ({ page }) => {
     await page.goto(r('/thank-you'));
-    await expect(page.locator('h1')).toContainText('on its way');
+    await expect(page.locator('h1')).toContainText('ready');
+    const download = page.getByRole('link', { name: /Download the Guide/i });
+    await expect(download).toHaveAttribute('href', '/5-pillars-christ-centered-sales-culture.pdf');
     const cta = page.getByRole('link', { name: /Let's Talk/i });
     await expect(cta).toBeVisible();
   });
@@ -94,10 +104,17 @@ test.describe('/services page', () => {
 });
 
 test.describe('/blog page', () => {
-  test('loads with empty state message', async ({ page }) => {
+  test('loads and lists published posts', async ({ page }) => {
     await page.goto(r('/blog'));
     await expect(page.locator('h1')).toContainText('Thinking Out Loud');
-    await expect(page.getByText(/First post coming soon/i)).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Hearing From God/i })).toBeVisible();
+  });
+
+  test('a post links through to its detail page', async ({ page }) => {
+    await page.goto(r('/blog'));
+    await page.getByRole('link', { name: /Hearing From God/i }).click();
+    await expect(page.locator('h1')).toContainText('Hearing From God');
+    await expect(page.getByRole('link', { name: /Back to all posts/i })).toBeVisible();
   });
 });
 
@@ -110,13 +127,10 @@ test.describe('/contact page', () => {
 });
 
 test.describe('/alt page', () => {
-  test('loads and shows redesigned headline', async ({ page }) => {
+  // The alt design was promoted to the homepage; /alt now redirects to /.
+  test('redirects to the homepage', async ({ page }) => {
     await page.goto(r('/alt'));
+    await expect(page).toHaveURL(/localhost:\d+\/$/);
     await expect(page.locator('h1')).toContainText('Something Greater');
-  });
-
-  test('has alternative site label', async ({ page }) => {
-    await page.goto(r('/alt'));
-    await expect(page.getByText(/Alternative Design/i)).toBeVisible();
   });
 });
