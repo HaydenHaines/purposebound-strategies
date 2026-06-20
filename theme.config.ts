@@ -8,7 +8,7 @@ export const theme = {
     tagline: 'Equipping Leaders for Marketplace Ministry.',
     description:
       'Corporate ministry and Kingdom-focused coaching for faith-driven leaders committed to bringing the Kingdom into the marketplace.',
-    url: 'https://purposeboundstrategies.com', // DEBT: update when domain is confirmed
+    url: 'https://purposeboundstrategies.com',
   },
   founder: {
     name: 'Tory Bryant',

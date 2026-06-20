@@ -8,3 +8,6 @@ dist/
 playwright-report/
 test-results/
 .superpowers/
+
+# Local browser-automation artifacts
+.playwright-mcp/
