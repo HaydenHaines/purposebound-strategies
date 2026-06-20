@@ -58,7 +58,6 @@ export const theme = {
     webhookUrl: '',
   },
   social: {
-    facebook: 'https://www.facebook.com/tory.bryant.50',
     linkedin: 'https://www.linkedin.com/in/tory-bryant-84197973/',
   },
   credibilityLabel: 'Credentials & Recognition',
