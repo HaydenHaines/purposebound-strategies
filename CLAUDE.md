@@ -55,4 +55,5 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 | 2026-03-24 | theme.config.ts as single source | All tokens in one place; swap logo/colors/copy without touching components |
 | 2026-03-24 | Bare layout for /start and /thank-you | Zero exit paths on conversion pages — no nav, no footer |
 | 2026-03-24 | Netlify Forms over backend | No server needed; free tier handles small lead volumes; Decap CMS auth uses Netlify Identity anyway |
+| 2026-06-19 | MailerLite as email provider | Free to 1,000 subs; bridged via Netlify outgoing webhook → Zapier Catch Hook → MailerLite "Create Subscriber" (group `Leads – 5 Pillars`). No form-markup change; `theme.email.webhookUrl` stays empty (webhook is set in Netlify dashboard, not code). Lead fields: name, email, phone, business, employees. |
 | 2026-03-24 | GitHub Pages for testing, Netlify for production | Client testing before domain/Netlify account is set up; swap `astro.config.mjs` site/base back to `purposeboundstrategies.com` and remove `base` when moving to Netlify |

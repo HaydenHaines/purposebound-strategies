@@ -14,7 +14,7 @@ export const theme = {
     name: 'Tory Bryant',
     title: 'Founder & Owner, PurposeBound Strategies',
     photo: '/images/founder.jpg',
-    email: 'hello@purposeboundstrategies.com', // DEBT: update with real email
+    email: 'twbryant1999@gmail.com',
   },
   brand: {
     logo: '/logo.png',
