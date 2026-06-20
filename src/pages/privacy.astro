@@ -1,0 +1,131 @@
+---
+// src/pages/privacy.astro
+// Boilerplate privacy policy. Reflects the site's actual data flow:
+// Netlify Forms capture → MailerLite nurture → Calendly scheduling.
+// DEBT: have legal counsel review before relying on this for compliance.
+import Page from '../layouts/Page.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import { theme } from '../../theme.config';
+
+const lastUpdated = 'June 19, 2026';
+---
+<Page
+  title="Privacy Policy"
+  description={`How ${theme.site.name} collects, uses, and protects your information.`}
+>
+
+  <!-- Page Hero -->
+  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+    <SectionLabel text="Legal" light />
+    <h1 class="text-cream text-4xl font-bold mb-4">Privacy Policy</h1>
+    <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+      Last updated: {lastUpdated}
+    </p>
+  </section>
+
+  <section class="bg-cream px-10 py-14 max-w-2xl mx-auto">
+    <div class="space-y-8 text-pb-text/80 text-base leading-relaxed">
+
+      <p>
+        {theme.site.name} ("we," "us," or "our") respects your privacy and is committed to
+        protecting the personal information you share with us. This policy explains what we collect,
+        how we use it, and the choices you have. By using this website, you agree to the practices
+        described here.
+      </p>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Information We Collect</h2>
+        <p>
+          We only collect the information you choose to give us. When you submit a form on this site —
+          such as to request a free resource or book a call — we may collect your name, business name,
+          number of employees, email address, and phone number. We do not knowingly collect sensitive
+          personal information, and we do not collect data from children under 13.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">How We Use Your Information</h2>
+        <p>We use the information you provide to:</p>
+        <ul class="list-disc pl-6 mt-3 space-y-1">
+          <li>Deliver the resources and downloads you request</li>
+          <li>Respond to your inquiries and follow up personally</li>
+          <li>Send occasional emails with related content, updates, and offers (you can unsubscribe at any time)</li>
+          <li>Schedule and prepare for calls or coaching engagements</li>
+        </ul>
+        <p class="mt-3">
+          We will never sell, rent, or trade your personal information to third parties.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Service Providers</h2>
+        <p>
+          We rely on trusted third-party services to operate this site and communicate with you. These
+          providers process your information only as needed to perform their services, and each maintains
+          its own privacy policy:
+        </p>
+        <ul class="list-disc pl-6 mt-3 space-y-1">
+          <li><strong>Netlify</strong> — website hosting and form handling</li>
+          <li><strong>MailerLite</strong> — email delivery and list management</li>
+          <li><strong>Calendly</strong> — call and appointment scheduling</li>
+          <li><strong>Zapier</strong> — secure transfer of form submissions between the services above</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Cookies</h2>
+        <p>
+          This site uses minimal cookies necessary for it to function. Embedded third-party tools
+          (such as scheduling widgets) may set their own cookies when you interact with them. You can
+          control or disable cookies through your browser settings, though some features may not work
+          as intended if you do.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Email Communications</h2>
+        <p>
+          If you join our email list, you may receive messages from us. Every email includes an
+          unsubscribe link, and you may opt out at any time. You can also email us directly to be
+          removed from all communications.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Data Retention &amp; Security</h2>
+        <p>
+          We keep your information only as long as needed to fulfill the purposes described above or as
+          required by law. We take reasonable measures to protect your information, but no method of
+          transmission over the internet is completely secure.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Your Rights</h2>
+        <p>
+          You may request access to, correction of, or deletion of the personal information we hold about
+          you. To make a request, contact us using the details below and we will respond within a
+          reasonable time.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Changes to This Policy</h2>
+        <p>
+          We may update this policy from time to time. When we do, we will revise the "Last updated" date
+          above. We encourage you to review this page periodically.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-pb-text text-xl font-bold mb-3">Contact Us</h2>
+        <p>
+          If you have any questions about this Privacy Policy or how your information is handled, please
+          contact us at <a href={`mailto:${theme.founder.email}`} class="text-link underline">{theme.founder.email}</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</Page>

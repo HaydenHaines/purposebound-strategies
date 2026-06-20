@@ -71,7 +71,7 @@ export const theme = {
     { name: 'M.S. Leadership & Professional Development', url: '' },
   ],
   leadMagnet: {
-    title: 'The 5 Pillars of a Christ-Centered Sales Culture',
+    title: 'The 5 Pillars of a Christ-Centered Culture',
     description:
       'A practical framework for faith-driven leaders who want to build something that lasts.',
     // Gated download — delivered on /thank-you after the capture form is submitted.
