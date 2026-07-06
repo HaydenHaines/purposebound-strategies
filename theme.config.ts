@@ -51,7 +51,7 @@ export const theme = {
     { label: 'Blog', href: '/blog' },
   ],
   calendly: {
-    url: 'https://calendly.com/[handle]/discovery', // DEBT: update with real Calendly URL
+    url: 'https://calendly.com/twbryant1999/30min',
   },
   email: {
     // DEBT: add webhook URL when email provider is chosen (ConvertKit or MailerLite)
@@ -76,11 +76,9 @@ export const theme = {
     // Gated download — delivered on /thank-you after the capture form is submitted.
     file: '/5-pillars-christ-centered-sales-culture.pdf',
     bullets: [
-      'The biblical foundation for ethical selling',
-      'How to build a team culture rooted in integrity',
-      'Practical tools for coaching that forms character',
-      'A framework for accountability that motivates rather than pressures',
-      'How to measure success beyond the scoreboard',
+      'A biblical foundation for each pillar, drawn from scripture and tested in real organizations',
+      'Practical weekly actions that move principles from the page into everyday leadership',
+      'Honest reflection prompts that reveal what your culture is actually forming in people',
     ],
   },
   howItWorks: {

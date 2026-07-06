@@ -5,7 +5,7 @@ import Bare from '../layouts/Bare.astro';
 import { theme } from '../../theme.config';
 ---
 <Bare title="You're in — check your email">
-  <section class="bg-rich border-b-[3px] border-accent px-10 py-20 text-center min-h-screen flex flex-col items-center justify-center">
+  <section class="bg-rich border-b-[3px] border-accent px-6 sm:px-10 py-20 text-center min-h-screen flex flex-col items-center justify-center">
     <div class="max-w-lg mx-auto">
       <p class="text-accent text-[10px] uppercase tracking-[0.3em] mb-6">You're In</p>
       <h1 class="text-cream text-3xl font-bold mb-6">
@@ -20,7 +20,7 @@ import { theme } from '../../theme.config';
       <a
         href={theme.leadMagnet.file}
         download
-        class="font-inter inline-block bg-accent text-deep text-sm font-bold uppercase tracking-wider px-10 py-4 hover:brightness-110 transition-all"
+        class="font-inter inline-block bg-accent text-deep text-sm font-bold uppercase tracking-wider px-6 sm:px-10 py-4 hover:brightness-110 transition-all"
       >
         Download the Guide
       </a>

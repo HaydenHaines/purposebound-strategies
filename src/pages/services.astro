@@ -14,7 +14,7 @@ const sorted = services.sort((a, b) => a.data.order - b.data.order);
   description="Kingdom-focused coaching and corporate ministry for faith-driven leaders committed to bringing the Kingdom into the marketplace."
 >
 
-  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+  <section class="bg-rich border-b-[3px] border-accent px-6 sm:px-10 py-16 text-center">
     <SectionLabel text="Services" light />
     <h1 class="text-cream text-4xl font-bold mb-4">How We Work Together</h1>
     <p class="text-muted text-base max-w-md mx-auto leading-relaxed">
@@ -23,7 +23,7 @@ const sorted = services.sort((a, b) => a.data.order - b.data.order);
     </p>
   </section>
 
-  <section class="bg-rich px-10 py-14">
+  <section class="bg-rich px-6 sm:px-10 py-14">
     <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
       {sorted.map((service) => (
         <ServiceCard
@@ -40,7 +40,7 @@ const sorted = services.sort((a, b) => a.data.order - b.data.order);
   </section>
 
   <!-- Bottom CTA -->
-  <section class="bg-cream px-10 py-14 text-center">
+  <section class="bg-cream px-6 sm:px-10 py-14 text-center">
     <p class="text-pb-text text-lg font-bold mb-2 max-w-lg mx-auto">
       No pitch. No pressure. Just a conversation.
     </p>

@@ -12,7 +12,7 @@ interface Props {
 }
 const { testimonials } = Astro.props;
 ---
-<section class="bg-cream px-10 py-14 text-center">
+<section class="bg-cream px-6 sm:px-10 py-14 text-center">
   <!-- All slides share the same grid cell; container height = tallest slide -->
   <div class="grid">
     {testimonials.map((t, i) => (

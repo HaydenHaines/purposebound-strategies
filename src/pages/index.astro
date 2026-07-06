@@ -29,7 +29,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
 
   <!-- Who I Work With + The Problem — gold section with navy cards -->
   <section class="bg-accent clip-diag-bottom">
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-10 pt-14 pb-4">
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6 sm:px-10 pt-14 pb-4">
       <div class="bg-deep px-8 py-10">
         <SectionLabel text="Who I Work With" light />
         <h2 class="font-display uppercase text-cream text-3xl font-bold mb-4 leading-tight">
@@ -53,7 +53,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
 
   <!-- Meet Tory — white 50/50 Bergman founder block -->
   <section class="bg-cream clip-diag-top">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 items-stretch px-10 py-16">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 items-stretch px-6 sm:px-10 py-16">
       <div class="overflow-hidden">
         <img
           src={`${theme.founder.photo}`}
@@ -62,7 +62,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
           loading="lazy"
         />
       </div>
-      <div class="flex flex-col justify-center pl-12">
+      <div class="flex flex-col justify-center pl-0 pt-8 md:pt-0 md:pl-12">
         <SectionLabel text="Meet Tory" />
         <h2 class="font-display uppercase text-pb-text text-4xl font-bold leading-none mb-6">
           Hi, I'm Tory.
@@ -88,7 +88,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   <HowItWorks />
 
   <!-- Services — gold section, icon cards -->
-  <section class="bg-accent px-10 py-16">
+  <section class="bg-accent px-6 sm:px-10 py-16">
     <div class="text-center mb-10">
       <SectionLabel text="Services" />
       <h2 class="font-display uppercase text-deep text-4xl font-bold leading-none">
@@ -114,8 +114,8 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   <CredibilityBar />
 
   <!-- Bold accent callout -->
-  <section class="bg-accent px-10 py-16 text-center">
-    <p class="font-display uppercase text-deep text-5xl font-bold leading-none max-w-2xl mx-auto" style="letter-spacing: 0.02em;">
+  <section class="bg-accent px-6 sm:px-10 py-16 text-center">
+    <p class="font-display uppercase text-deep text-3xl sm:text-5xl font-bold leading-none max-w-2xl mx-auto" style="letter-spacing: 0.02em;">
       The Workplace Is a Mission Field.
     </p>
     <p class="text-deep/70 text-base mt-5 max-w-lg mx-auto leading-relaxed">
@@ -124,7 +124,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   </section>
 
   <!-- Photo Banner -->
-  <div class="bg-cream px-10 py-6">
+  <div class="bg-cream px-6 sm:px-10 py-6">
     <div class="relative h-[420px] overflow-hidden mx-auto" style="max-width: 64rem;">
       <img
         src={`/images/mission-group.jpg`}
@@ -132,7 +132,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
         class="w-full h-full object-cover object-center"
         loading="lazy"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-deep/20 via-deep/70 to-deep/95 flex flex-col items-center justify-center text-center px-10">
+      <div class="absolute inset-0 bg-gradient-to-b from-deep/20 via-deep/70 to-deep/95 flex flex-col items-center justify-center text-center px-6 sm:px-10">
         <p class="font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5 inline-block">Ministry in the Marketplace</p>
         <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl" style="text-shadow: 0 2px 12px rgba(0,0,0,1);">
           Faith Doesn't Stop at the Office Door.
@@ -145,7 +145,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   </div>
 
   <!-- What I Believe -->
-  <section class="px-10 py-10 max-w-2xl mx-auto">
+  <section class="px-6 sm:px-10 py-10 max-w-2xl mx-auto">
     <SectionLabel text="What I Believe" />
     <QuoteBlock
       quote="A business is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into."
@@ -161,7 +161,7 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   </section>
 
   <!-- Lead Magnet CTA -->
-  <section class="bg-rich border-t-[3px] border-accent px-10 py-14 text-center">
+  <section class="bg-rich border-t-[3px] border-accent px-6 sm:px-10 py-14 text-center">
     <SectionLabel text="Free Resource" light />
     <h2 class="font-display uppercase text-cream text-3xl font-bold mb-3">{theme.leadMagnet.title}</h2>
     <p class="text-muted text-base mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>

@@ -24,7 +24,7 @@ const dateLabel = post.data.pubDate.toLocaleDateString('en-US', {
 ---
 <Page title={post.data.title} description={post.data.description}>
   <!-- Post header -->
-  <section class="bg-rich border-b-[3px] border-accent px-10 py-16 text-center">
+  <section class="bg-rich border-b-[3px] border-accent px-6 sm:px-10 py-16 text-center">
     <SectionLabel text="From the Blog" light />
     <h1 class="text-cream text-4xl font-bold mb-4 max-w-2xl mx-auto leading-tight">
       {post.data.title}
@@ -35,7 +35,7 @@ const dateLabel = post.data.pubDate.toLocaleDateString('en-US', {
   </section>
 
   <!-- Post body -->
-  <section class="bg-cream px-10 py-14">
+  <section class="bg-cream px-6 sm:px-10 py-14">
     <article class="post-body max-w-2xl mx-auto text-pb-text">
       <Content />
     </article>
