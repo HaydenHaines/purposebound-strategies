@@ -11,3 +11,6 @@ test-results/
 
 # Local browser-automation artifacts
 .playwright-mcp/
+
+.DS_Store
+**/.DS_Store
