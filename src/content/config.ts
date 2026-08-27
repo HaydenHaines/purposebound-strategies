@@ -40,4 +40,47 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, services };
+// ---- Settings: site-wide values Tory edits in the CMS (one JSON file per entry) ----
+const siteSchema = z.object({
+  name: z.string(),
+  tagline: z.string(),
+  description: z.string(),
+  url: z.string().url(),
+  nav: z.array(z.object({ label: z.string(), href: z.string() })),
+  social: z.object({ linkedin: z.string() }),
+  calendly: z.object({ url: z.string().url() }),
+  contactEmail: z.string().email(),
+});
+
+const founderSchema = z.object({
+  name: z.string(),
+  title: z.string(),
+  photo: z.string(),
+  email: z.string().email(),
+});
+
+const leadMagnetSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  file: z.string(), // root-absolute path to the PDF in public/
+  bullets: z.array(z.string()),
+});
+
+const contactSchema = z.object({
+  faq: z.array(z.object({ q: z.string(), a: z.string() })),
+});
+
+// Exported for tests; Astro itself uses the union below.
+export const settingsSchemas = {
+  site: siteSchema,
+  founder: founderSchema,
+  leadMagnet: leadMagnetSchema,
+  contact: contactSchema,
+};
+
+const settings = defineCollection({
+  type: 'data',
+  schema: z.union([siteSchema, founderSchema, leadMagnetSchema, contactSchema]),
+});
+
+export const collections = { blog, testimonials, services, settings };

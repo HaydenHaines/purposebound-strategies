@@ -15,7 +15,9 @@ import { getCollection } from 'astro:content';
 
 const testimonialEntries = await getCollection('testimonials');
 const testimonials = testimonialEntries
-  .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0))
+  // Content layer's glob loader does not guarantee file enumeration order, so tie-break
+  // on id for a deterministic render (featured first, then alphabetical by filename).
+  .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0) || a.id.localeCompare(b.id))
   .map(e => e.data);
 
 const serviceEntries = await getCollection('services');
