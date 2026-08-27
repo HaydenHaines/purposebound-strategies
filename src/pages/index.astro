@@ -125,21 +125,31 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
 
   <!-- Photo Banner -->
   <div class="bg-cream px-6 sm:px-10 py-6">
-    <div class="relative h-[420px] overflow-hidden mx-auto" style="max-width: 64rem;">
-      <img
-        src={`/images/mission-group.jpg`}
-        alt="Group on mission trip"
-        class="w-full h-full object-cover object-center"
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-deep/20 via-deep/70 to-deep/95 flex flex-col items-center justify-end text-center px-6 sm:px-10 pb-8 sm:pb-10">
+    <div class="mx-auto" style="max-width: 64rem;">
+      <!-- Mobile: label + headline sit ABOVE the photo so they never cover faces -->
+      <div class="sm:hidden bg-deep flex flex-col items-center text-center px-6 pt-8 pb-6">
         <p class="font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5 inline-block">Ministry in the Marketplace</p>
-        <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl" style="text-shadow: 0 2px 12px rgba(0,0,0,1);">
+        <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl">
           Faith Doesn't Stop at the Office Door.
         </p>
-        <p class="text-cream text-base mt-4 max-w-lg" style="text-shadow: 0 1px 8px rgba(0,0,0,1);">
-          34 leaders brought from their desks to the mission field — and back again, changed.
-        </p>
+      </div>
+      <div class="relative h-[280px] sm:h-[420px] overflow-hidden">
+        <img
+          src={`/images/mission-group.jpg`}
+          alt="Group on mission trip"
+          class="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <!-- sm+: full overlay on the photo. Mobile: only the subline, pinned to the bottom edge -->
+        <div class="absolute inset-0 bg-gradient-to-b from-deep/20 via-deep/70 to-deep/95 sm:via-deep/70 flex flex-col items-center justify-end text-center px-6 sm:px-10 pb-6 sm:pb-10">
+          <p class="hidden sm:inline-block font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5">Ministry in the Marketplace</p>
+          <p class="hidden sm:block font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl" style="text-shadow: 0 2px 12px rgba(0,0,0,1);">
+            Faith Doesn't Stop at the Office Door.
+          </p>
+          <p class="text-cream text-base sm:mt-4 max-w-lg" style="text-shadow: 0 1px 8px rgba(0,0,0,1);">
+            34 leaders brought from their desks to the mission field — and back again, changed.
+          </p>
+        </div>
       </div>
     </div>
   </div>

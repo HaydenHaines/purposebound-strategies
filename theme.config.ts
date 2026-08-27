@@ -74,7 +74,7 @@ export const theme = {
     description:
       'A practical framework for faith-driven leaders who want to build something that lasts.',
     // Gated download — delivered on /thank-you after the capture form is submitted.
-    file: '/5-pillars-christ-centered-sales-culture.pdf',
+    file: '/5-pillars-christ-centered-culture.pdf',
     bullets: [
       'A biblical foundation for each pillar, drawn from scripture and tested in real organizations',
       'Practical weekly actions that move principles from the page into everyday leadership',
