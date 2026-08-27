@@ -6,6 +6,7 @@ import leadMagnet from '../src/content/settings/leadMagnet.json';
 import contact from '../src/content/settings/contact.json';
 import { pageSchemas } from '../src/content/config';
 import home from '../src/content/pages/home.json';
+import about from '../src/content/pages/about.json';
 
 // Every content file the CMS can write must parse against its schema.
 // This mirrors Astro's build-time validation so a bad save fails here first.
@@ -33,5 +34,10 @@ describe('pages collection', () => {
     expect(home.benefits).toHaveLength(3);
     expect(home.howItWorks.steps).toHaveLength(3);
     expect(home.hero.headlineAccent).toContain('Something Greater');
+  });
+
+  it('about.json matches schema', () => {
+    expect(() => pageSchemas.about.parse(about)).not.toThrow();
+    expect(about.story.sections.length).toBeGreaterThanOrEqual(3);
   });
 });

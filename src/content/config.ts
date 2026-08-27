@@ -130,11 +130,38 @@ const homeSchema = z.object({
   freeResource: z.object({ label: z.string() }),
 });
 
-export const pageSchemas = { home: homeSchema };
+const aboutSchema = z.object({
+  meta: z.object({ title: z.string(), description: z.string() }),
+  hero: z.object({ label: z.string(), headline: z.string(), subhead: z.string() }),
+  foundation: z.object({ label: z.string(), headline: z.string(), paragraphs: z.array(z.string()) }),
+  philosophy: z.object({
+    label: z.string(),
+    headline: z.string(),
+    subhead: z.string(),
+    paragraphs: z.array(z.string()),
+    quote: z.string(),
+    image: z.string(),
+    imageAlt: z.string(),
+  }),
+  story: z.object({
+    label: z.string(),
+    roles: z.string(),
+    tagline: z.string(),
+    intro: z.array(z.string()),
+    sections: z.array(z.object({ heading: z.string(), paragraphs: z.array(z.string()) })),
+    closing: z.string(),
+    strengths: z.string(),
+    image: z.string(),
+    imageAlt: z.string(),
+    cta: z.object({ label: z.string(), href: z.string() }),
+  }),
+});
+
+export const pageSchemas = { home: homeSchema, about: aboutSchema };
 
 const pages = defineCollection({
   type: 'data',
-  schema: homeSchema, // Task 4 turns this into a union with aboutSchema
+  schema: z.union([homeSchema, aboutSchema]),
 });
 
 export const collections = { blog, testimonials, services, settings, pages };
