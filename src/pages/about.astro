@@ -3,7 +3,9 @@
 import Page from '../layouts/Page.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+const founder = settingsSchemas.founder.parse((await getEntry('settings', 'founder'))!.data);
 ---
 <Page
   title="What I Believe"
@@ -65,12 +67,12 @@ import { theme } from '../../theme.config';
     <SectionLabel text="My Story" />
     <div class="flex items-start gap-6 mb-2">
       <img
-        src={`${theme.founder.photo}`}
-        alt={theme.founder.name}
+        src={`${founder.photo}`}
+        alt={founder.name}
         class="w-24 h-24 rounded-full object-cover object-top border-2 border-accent flex-shrink-0"
       />
       <div class="self-center">
-        <h2 class="text-pb-text text-2xl font-bold">{theme.founder.name}</h2>
+        <h2 class="text-pb-text text-2xl font-bold">{founder.name}</h2>
         <p class="text-link text-xs uppercase tracking-wider mt-1">Founder & Owner · Marketplace Ministry Leader · Sales Coach · Educator</p>
       </div>
     </div>

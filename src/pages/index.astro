@@ -10,8 +10,11 @@ import QuoteBlock from '../components/QuoteBlock.astro';
 import LeadMagnetForm from '../components/LeadMagnetForm.astro';
 import TestimonialGrid from '../components/TestimonialGrid.astro';
 import ServiceIconCard from '../components/ServiceIconCard.astro';
-import { theme } from '../../theme.config';
-import { getCollection } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+import { getCollection, getEntry } from 'astro:content';
+
+const founder = settingsSchemas.founder.parse((await getEntry('settings', 'founder'))!.data);
+const leadMagnet = settingsSchemas.leadMagnet.parse((await getEntry('settings', 'leadMagnet'))!.data);
 
 const testimonialEntries = await getCollection('testimonials');
 const testimonials = testimonialEntries
@@ -58,8 +61,8 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 items-stretch px-6 sm:px-10 py-16">
       <div class="overflow-hidden">
         <img
-          src={`${theme.founder.photo}`}
-          alt={theme.founder.name}
+          src={`${founder.photo}`}
+          alt={founder.name}
           class="w-full h-full object-cover object-top"
           loading="lazy"
         />
@@ -175,8 +178,8 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   <!-- Lead Magnet CTA -->
   <section class="bg-rich border-t-[3px] border-accent px-6 sm:px-10 py-14 text-center">
     <SectionLabel text="Free Resource" light />
-    <h2 class="font-display uppercase text-cream text-3xl font-bold mb-3">{theme.leadMagnet.title}</h2>
-    <p class="text-muted text-base mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>
+    <h2 class="font-display uppercase text-cream text-3xl font-bold mb-3">{leadMagnet.title}</h2>
+    <p class="text-muted text-base mb-8 max-w-md mx-auto">{leadMagnet.description}</p>
     <LeadMagnetForm />
   </section>
 

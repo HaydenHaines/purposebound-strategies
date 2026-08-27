@@ -1,16 +1,18 @@
 ---
 // src/components/Footer.astro
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+const site = settingsSchemas.site.parse((await getEntry('settings', 'site'))!.data);
 
 const year = new Date().getFullYear();
 ---
 <footer class="bg-deep px-6 sm:px-8 py-6 flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between items-center text-center">
   <span class="text-accent text-xs font-bold uppercase tracking-wider">
-    {theme.site.name}
+    {site.name}
   </span>
   <nav class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6" aria-label="Footer navigation">
     <span class="text-muted text-[10px]">© {year}</span>
-    {theme.nav.map((item) => (
+    {site.nav.map((item) => (
       <a href={`${item.href}`} class="text-muted text-[10px] hover:text-cream transition-colors">
         {item.label}
       </a>
@@ -21,8 +23,8 @@ const year = new Date().getFullYear();
     <a href={`/privacy`} class="text-muted text-[10px] hover:text-cream transition-colors">
       Privacy
     </a>
-    {theme.social.linkedin && (
-      <a href={theme.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-muted hover:text-cream transition-colors">
+    {site.social.linkedin && (
+      <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-muted hover:text-cream transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
