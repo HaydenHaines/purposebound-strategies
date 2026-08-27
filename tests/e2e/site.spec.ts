@@ -78,7 +78,7 @@ test.describe('/thank-you page', () => {
     await page.goto(r('/thank-you'));
     await expect(page.locator('h1')).toContainText('ready');
     const download = page.getByRole('link', { name: /Download the Guide/i });
-    await expect(download).toHaveAttribute('href', '/5-pillars-christ-centered-sales-culture.pdf');
+    await expect(download).toHaveAttribute('href', '/5-pillars-christ-centered-culture.pdf');
     const cta = page.getByRole('link', { name: /Let's Talk/i });
     await expect(cta).toBeVisible();
   });
