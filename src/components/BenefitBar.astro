@@ -1,9 +1,11 @@
 ---
 // src/components/BenefitBar.astro
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { pageSchemas } from '../content/config';
+const home = pageSchemas.home.parse((await getEntry('pages', 'home'))!.data);
 ---
 <div class="bg-accent px-6 sm:px-8 py-5 flex flex-col items-start sm:flex-row sm:flex-wrap sm:justify-center sm:items-center gap-y-3 sm:gap-x-10">
-  {theme.benefits.map((benefit, i) => (
+  {home.benefits.map((benefit, i) => (
     <>
       {i > 0 && <span class="text-deep/40 hidden sm:inline">|</span>}
       <div class="flex items-center gap-2">

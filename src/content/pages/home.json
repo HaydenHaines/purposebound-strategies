@@ -1,0 +1,71 @@
+{
+  "meta": { "title": "Professional Coaching & Marketplace Ministry" },
+  "hero": {
+    "kicker": "Marketplace Ministry ✦ Discipleship ✦ Spiritual Leadership",
+    "headline": "Build a Business That Honors",
+    "headlineAccent": "Something Greater.",
+    "subhead": "Your business is a mission field. We help faith-driven leaders build cultures that form people, not just drive performance.",
+    "primaryCta": { "label": "Get the Free Guide", "href": "/start" },
+    "secondaryCta": { "label": "Let's Talk", "href": "/contact" }
+  },
+  "benefits": [
+    { "text": "Shepherd Hearts, Not Just Systems" },
+    { "text": "Cultivate Spiritual Health" },
+    { "text": "Tend The Souls In Your Organization" }
+  ],
+  "whoIWorkWith": {
+    "label": "Who I Work With",
+    "headline": "Leaders Who Know Their Business Was Made for More.",
+    "body": "If you're carrying the weight of your organization's culture — and quietly wondering if there's someone who can help you tend the souls in your care, not just the systems — you're exactly who this is for."
+  },
+  "problem": {
+    "label": "The Problem",
+    "headline": "You Can Build a Thriving Business and Still Lose Your People.",
+    "body": "Metrics don't shepherd hearts. Systems don't tend souls. If you sense there's more — for your people, your culture, your calling — PurposeBound Strategies was built for you."
+  },
+  "meetTory": {
+    "label": "Meet Tory",
+    "headline": "Hi, I'm Tory.",
+    "body": "Kingdom-minded catalyst, coach, and sales leader — led six, million-dollar producers, high school and collegiate athletes, 34 leaders taken from their desks to the mission field, and 25 years living at the intersection of faith and excellence.",
+    "quote": "\"For 25 years I've watched leaders build thriving organizations while slowly losing what matters most. That gap is exactly where I work.\"",
+    "cta": { "label": "Read His Story", "href": "/about" }
+  },
+  "howItWorks": {
+    "label": "How It Works",
+    "steps": [
+      { "title": "Let's Talk", "body": "A candid conversation about where your organization is, where you sense it's called to go, and whether Tory is the right fit for that journey. No pitch — just discernment." },
+      { "title": "Walk Together", "body": "An engagement shaped around your people, your culture, and the specific work God seems to be calling your organization into." },
+      { "title": "Stop Building Alone", "body": "Ongoing presence, accountability, and equipping — because the most meaningful work isn't meant to be done in isolation." }
+    ],
+    "cta": { "label": "Let's Talk", "href": "/contact" }
+  },
+  "services": { "label": "Services", "headline": "How We Work Together" },
+  "credibility": {
+    "label": "Credentials & Recognition",
+    "items": [
+      { "name": "2024 Facilis Cares Award", "url": "" },
+      { "name": "$20–25M Revenue Oversight", "url": "" },
+      { "name": "Domestic & International Mission Leadership", "url": "" },
+      { "name": "Ministry Integration & Operational Leadership", "url": "" },
+      { "name": "25+ Years Building Leaders, Teams, and Kingdom Impact | 250+ People Developed", "url": "" },
+      { "name": "M.S. Leadership & Professional Development", "url": "" }
+    ]
+  },
+  "callout": {
+    "headline": "The Workplace Is a Mission Field.",
+    "body": "The question isn't whether your organization is forming the people in it — it's what it's forming them into."
+  },
+  "banner": {
+    "label": "Ministry in the Marketplace",
+    "headline": "Faith Doesn't Stop at the Office Door.",
+    "subline": "34 leaders brought from their desks to the mission field — and back again, changed.",
+    "image": "/images/mission-group.jpg",
+    "imageAlt": "Group on mission trip"
+  },
+  "whatIBelieve": {
+    "label": "What I Believe",
+    "quote": "A business is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into.",
+    "cta": { "label": "Read the Full Statement", "href": "/about" }
+  },
+  "freeResource": { "label": "Free Resource" }
+}

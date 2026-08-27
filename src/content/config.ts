@@ -83,4 +83,58 @@ const settings = defineCollection({
   schema: z.union([siteSchema, founderSchema, leadMagnetSchema, contactSchema]),
 });
 
-export const collections = { blog, testimonials, services, settings };
+// ---- Pages: every string on a page template, so Tory can edit copy without touching code ----
+const homeSchema = z.object({
+  meta: z.object({ title: z.string() }),
+  hero: z.object({
+    kicker: z.string(),
+    headline: z.string(),          // plain part, e.g. "Build a Business That Honors"
+    headlineAccent: z.string(),    // gold part, e.g. "Something Greater."
+    subhead: z.string(),
+    primaryCta: z.object({ label: z.string(), href: z.string() }),
+    secondaryCta: z.object({ label: z.string(), href: z.string() }),
+  }),
+  benefits: z.array(z.object({ text: z.string() })),
+  whoIWorkWith: z.object({ label: z.string(), headline: z.string(), body: z.string() }),
+  problem: z.object({ label: z.string(), headline: z.string(), body: z.string() }),
+  meetTory: z.object({
+    label: z.string(),
+    headline: z.string(),
+    body: z.string(),
+    quote: z.string(),
+    cta: z.object({ label: z.string(), href: z.string() }),
+  }),
+  howItWorks: z.object({
+    label: z.string(),
+    steps: z.array(z.object({ title: z.string(), body: z.string() })),
+    cta: z.object({ label: z.string(), href: z.string() }),
+  }),
+  services: z.object({ label: z.string(), headline: z.string() }),
+  credibility: z.object({
+    label: z.string(),
+    items: z.array(z.object({ name: z.string(), url: z.string() })),
+  }),
+  callout: z.object({ headline: z.string(), body: z.string() }),
+  banner: z.object({
+    label: z.string(),
+    headline: z.string(),
+    subline: z.string(),
+    image: z.string(),
+    imageAlt: z.string(),
+  }),
+  whatIBelieve: z.object({
+    label: z.string(),
+    quote: z.string(),
+    cta: z.object({ label: z.string(), href: z.string() }),
+  }),
+  freeResource: z.object({ label: z.string() }),
+});
+
+export const pageSchemas = { home: homeSchema };
+
+const pages = defineCollection({
+  type: 'data',
+  schema: homeSchema, // Task 4 turns this into a union with aboutSchema
+});
+
+export const collections = { blog, testimonials, services, settings, pages };

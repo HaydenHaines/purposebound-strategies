@@ -1,6 +1,8 @@
 ---
 // src/components/HeroAlt.astro
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { pageSchemas } from '../content/config';
+const home = pageSchemas.home.parse((await getEntry('pages', 'home'))!.data);
 ---
 <section class="border-b-[3px] border-accent min-h-[520px] relative overflow-hidden bg-gradient-to-r from-deep via-rich to-link flex items-center">
   <img
@@ -12,27 +14,26 @@ import { theme } from '../../theme.config';
   <!-- Text content: z-10 always on top -->
   <div class="relative z-10 px-6 sm:pl-16 sm:pr-10 py-12 sm:py-16 flex flex-col justify-center max-w-3xl">
     <p class="font-inter text-accent text-xs uppercase tracking-[0.3em] mb-5">
-      Marketplace Ministry ✦ Discipleship ✦ Spiritual Leadership
+      {home.hero.kicker}
     </p>
     <h1 class="font-display uppercase text-cream font-bold leading-none mb-6" style="font-size: clamp(2.8rem, 6vw, 5rem); letter-spacing: 0.02em;">
-      Build a Business That Honors <span class="text-accent">Something Greater.</span>
+      {home.hero.headline} <span class="text-accent">{home.hero.headlineAccent}</span>
     </h1>
     <p class="text-muted text-base leading-relaxed max-w-md mb-8">
-      Your business is a mission field. We help faith-driven leaders build cultures
-      that form people, not just drive performance.
+      {home.hero.subhead}
     </p>
     <div class="flex gap-3 flex-wrap">
       <a
-        href={`/contact`}
+        href={home.hero.secondaryCta.href}
         class="font-inter border border-cream text-cream text-xs uppercase tracking-wider px-6 py-3 hover:bg-cream hover:text-deep transition-all"
       >
-        Let's Talk
+        {home.hero.secondaryCta.label}
       </a>
       <a
-        href={`/start`}
+        href={home.hero.primaryCta.href}
         class="font-inter bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all"
       >
-        Get the Free Guide
+        {home.hero.primaryCta.label}
       </a>
     </div>
   </div>
