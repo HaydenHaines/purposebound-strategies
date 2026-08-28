@@ -21,10 +21,3 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-
-# Redirect /admin to homepage until Decap CMS is configured
-# DEBT: remove this redirect when Decap CMS is configured
-[[redirects]]
-  from = "/admin"
-  to = "/"
-  status = 302

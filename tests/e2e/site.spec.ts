@@ -125,3 +125,16 @@ test.describe('/contact page', () => {
     await expect(page.getByText(/What happens on the call/i)).toBeVisible();
   });
 });
+
+test.describe('/admin (CMS)', () => {
+  test('serves the Sveltia editor shell', async ({ page }) => {
+    // NOTE: astro dev (unlike the production build / astro preview / Netlify) does not resolve
+    // index.html for trailing-slash requests into public/ subdirectories (withastro/astro#14800),
+    // so this hits the file directly. /admin/ is verified against `astro preview` in Step 7.
+    const res = await page.goto(r('/admin/index.html'));
+    expect(res?.status()).toBe(200);
+    await expect(page.locator('script[src*="sveltia-cms"]')).toHaveCount(1);
+    // Sveltia CMS itself injects a second <meta name="robots"> at runtime, so scope to the first (ours).
+    await expect(page.locator('meta[name="robots"]').first()).toHaveAttribute('content', /noindex/);
+  });
+});
