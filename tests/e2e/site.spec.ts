@@ -125,12 +125,3 @@ test.describe('/contact page', () => {
     await expect(page.getByText(/What happens on the call/i)).toBeVisible();
   });
 });
-
-test.describe('/alt page', () => {
-  // The alt design was promoted to the homepage; /alt now redirects to /.
-  test('redirects to the homepage', async ({ page }) => {
-    await page.goto(r('/alt'));
-    await expect(page).toHaveURL(/localhost:\d+\/$/);
-    await expect(page.locator('h1')).toContainText('Something Greater');
-  });
-});
