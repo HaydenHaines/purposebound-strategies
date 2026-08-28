@@ -112,7 +112,7 @@ const homeSchema = z.object({
   services: z.object({ label: z.string(), headline: z.string() }),
   credibility: z.object({
     label: z.string(),
-    items: z.array(z.object({ name: z.string(), url: z.string() })),
+    items: z.array(z.object({ name: z.string(), url: z.string().default('') })),
   }),
   callout: z.object({ headline: z.string(), body: z.string() }),
   banner: z.object({

@@ -11,6 +11,8 @@
    - **Settings → Contact Page FAQ** — the questions on the contact page.
    - **Blog Posts** — write new posts (turn **Draft** on to hide a post while you work on it).
    - **Services / Testimonials** — add, edit, reorder.
+
+   **Not editable yet:** the page headings on the Contact, Services, and Blog pages, the Start/Thank-you page text, and the hero emblem image. Text Hayden if you need one of those changed.
 3. Make your change and click **Save** (top right). That's it — the site rebuilds itself and your change is live in about a minute.
 
 **Photos:** click any photo field → **Upload** → pick a JPG/PNG. Keep photos under ~1 MB.

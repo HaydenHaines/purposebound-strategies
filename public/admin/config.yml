@@ -10,7 +10,8 @@ site_url: https://purposeboundstrategies.com
 display_url: https://purposeboundstrategies.com
 logo_url: /favicon-512.png
 
-media_folder: public/images
+# Media paths are absolute from the repo root (leading slash). A relative path resolves against the entry's folder in Sveltia — that bug 404'd the PDF once in review.
+media_folder: /public/images
 public_folder: /images
 
 collections:
@@ -67,7 +68,7 @@ collections:
           - name: file
             label: PDF File
             widget: file
-            media_folder: public
+            media_folder: /public
             public_folder: /
             hint: Upload the PDF visitors download after submitting the form.
           - { name: bullets, label: "What's Inside (bullets)", label_singular: Bullet, widget: list }
