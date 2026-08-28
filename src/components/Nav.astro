@@ -1,15 +1,17 @@
 ---
 // src/components/Nav.astro
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+const site = settingsSchemas.site.parse((await getEntry('settings', 'site'))!.data);
 ---
 <nav class="bg-deep px-6 sm:px-8 py-4 flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between items-center">
   <a href="/" class="flex items-center gap-3">
     <span class="font-inter text-cream text-sm font-bold uppercase tracking-[0.15em]">
-      {theme.site.name}
+      {site.name}
     </span>
   </a>
   <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-    {theme.nav.map((item) => (
+    {site.nav.map((item) => (
       <a href={`${item.href}`} class="font-inter text-accent text-xs uppercase tracking-wider hover:text-cream transition-colors">
         {item.label}
       </a>

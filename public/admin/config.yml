@@ -1,0 +1,348 @@
+# Sveltia CMS configuration — see docs/editing-your-site.md for the editor guide.
+# Field names MUST match the Zod schemas in src/content/config.ts.
+backend:
+  name: github
+  repo: HaydenHaines/purposebound-strategies
+  branch: main
+  # No base_url → Sveltia uses Netlify's GitHub OAuth provider (set up in Netlify → Access & security → OAuth).
+
+site_url: https://purposeboundstrategies.com
+display_url: https://purposeboundstrategies.com
+logo_url: /favicon-512.png
+
+# Media paths are absolute from the repo root (leading slash). A relative path resolves against the entry's folder in Sveltia — that bug 404'd the PDF once in review.
+media_folder: /public/images
+public_folder: /images
+
+collections:
+  # ---------- Settings ----------
+  - name: settings
+    label: Settings
+    icon: settings
+    files:
+      - name: site
+        label: Site
+        file: src/content/settings/site.json
+        format: json
+        fields:
+          - { name: name, label: Site Name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: description, label: Description (search engines & social), widget: text }
+          - { name: url, label: Site URL, widget: string }
+          - name: nav
+            label: Navigation Links
+            label_singular: Link
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: Path (e.g. /about), widget: string }
+          - name: social
+            label: Social
+            widget: object
+            fields:
+              - { name: linkedin, label: LinkedIn URL, widget: string }
+          - name: calendly
+            label: Calendly
+            widget: object
+            fields:
+              - { name: url, label: Booking URL, widget: string }
+          - { name: contactEmail, label: Contact Email (privacy page), widget: string }
+
+      - name: founder
+        label: Founder
+        file: src/content/settings/founder.json
+        format: json
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: title, label: Title, widget: string }
+          - { name: photo, label: Photo, widget: image }
+          - { name: email, label: Email, widget: string }
+
+      - name: leadMagnet
+        label: Free Guide (Lead Magnet)
+        file: src/content/settings/leadMagnet.json
+        format: json
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: description, label: Description, widget: text }
+          - name: file
+            label: PDF File
+            widget: file
+            media_folder: /public
+            public_folder: /
+            hint: Upload the PDF visitors download after submitting the form.
+          - { name: bullets, label: "What's Inside (bullets)", label_singular: Bullet, widget: list }
+
+      - name: contact
+        label: Contact Page FAQ
+        file: src/content/settings/contact.json
+        format: json
+        fields:
+          - name: faq
+            label: Questions
+            label_singular: Question
+            widget: list
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Answer, widget: text }
+
+  # ---------- Pages ----------
+  - name: pages
+    label: Pages
+    icon: description
+    files:
+      - name: home
+        label: Home Page
+        file: src/content/pages/home.json
+        format: json
+        fields:
+          - name: meta
+            label: Browser Title
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: kicker, label: Small line above headline, widget: string }
+              - { name: headline, label: Headline (white part), widget: string }
+              - { name: headlineAccent, label: Headline (gold part), widget: string }
+              - { name: subhead, label: Subheadline, widget: text }
+              - name: primaryCta
+                label: Gold Button
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+              - name: secondaryCta
+                label: Outline Button
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+          - name: benefits
+            label: Gold Bar Benefits
+            label_singular: Benefit
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+          - name: whoIWorkWith
+            label: Who I Work With
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: body, label: Body, widget: text }
+          - name: problem
+            label: The Problem
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: body, label: Body, widget: text }
+          - name: meetTory
+            label: Meet Tory
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: body, label: Body, widget: text }
+              - { name: quote, label: Pull quote, widget: text }
+              - name: cta
+                label: Button
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+          - name: howItWorks
+            label: How It Works
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - name: steps
+                label: Steps
+                label_singular: Step
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: body, label: Body, widget: text }
+              - name: cta
+                label: Button
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+          - name: services
+            label: Services Heading
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+          - name: credibility
+            label: Credentials Bar
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - name: items
+                label: Credentials
+                label_singular: Credential
+                widget: list
+                fields:
+                  - { name: name, label: Text, widget: string }
+                  - { name: url, label: Link (optional), widget: string, required: false, default: "" }
+          - name: callout
+            label: Gold Callout
+            widget: object
+            fields:
+              - { name: headline, label: Headline, widget: string }
+              - { name: body, label: Body, widget: text }
+          - name: banner
+            label: Photo Banner
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: subline, label: Line under headline, widget: string }
+              - { name: image, label: Photo, widget: image }
+              - { name: imageAlt, label: Photo description (accessibility), widget: string }
+          - name: whatIBelieve
+            label: What I Believe
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: quote, label: Quote, widget: text }
+              - name: cta
+                label: Button
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+          - name: freeResource
+            label: Free Resource Section
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+
+      - name: about
+        label: About Page
+        file: src/content/pages/about.json
+        format: json
+        fields:
+          - name: meta
+            label: Browser Title & Description
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - name: hero
+            label: Page Header
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: subhead, label: Subheadline, widget: text }
+          - name: foundation
+            label: The Foundation
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: paragraphs, label: Paragraphs, label_singular: Paragraph, widget: list, field: { name: p, label: Paragraph, widget: text } }
+          - name: philosophy
+            label: How This Shapes My Work
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: subhead, label: Italic line, widget: string }
+              - { name: paragraphs, label: Paragraphs, label_singular: Paragraph, widget: list, field: { name: p, label: Paragraph, widget: text } }
+              - { name: quote, label: Quote, widget: text }
+              - { name: image, label: Photo, widget: image }
+              - { name: imageAlt, label: Photo description, widget: string }
+          - name: story
+            label: My Story
+            widget: object
+            fields:
+              - { name: label, label: Small label, widget: string }
+              - { name: roles, label: Roles line (under name), widget: string }
+              - { name: tagline, label: Italic tagline, widget: text }
+              - { name: intro, label: Intro paragraphs, label_singular: Paragraph, widget: list, field: { name: p, label: Paragraph, widget: text } }
+              - name: sections
+                label: Story Sections
+                label_singular: Section
+                widget: list
+                fields:
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: paragraphs, label: Paragraphs, label_singular: Paragraph, widget: list, field: { name: p, label: Paragraph, widget: text } }
+              - { name: closing, label: Closing paragraph (shown after the 2nd section), widget: text }
+              - { name: strengths, label: Core strengths (· separated), widget: text }
+              - { name: image, label: Photo, widget: image }
+              - { name: imageAlt, label: Photo description, widget: string }
+              - name: cta
+                label: Button
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: Link, widget: string }
+
+  # ---------- Blog ----------
+  - name: blog
+    label: Blog Posts
+    label_singular: Post
+    icon: article
+    folder: src/content/blog
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} — {{pubDate}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Short description, widget: text }
+      - { name: pubDate, label: Publish date, widget: datetime, format: YYYY-MM-DD, time_format: false }
+      - { name: author, label: Author, widget: string, default: Tory Bryant }
+      - { name: image, label: Cover image, widget: image, required: false }
+      - { name: draft, label: Draft (hide from site), widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  # ---------- Services ----------
+  - name: services
+    label: Services
+    label_singular: Service
+    icon: handshake
+    folder: src/content/services
+    create: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: tagline, label: Tagline, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: whoItIsFor, label: Who it's for, widget: text }
+      - { name: includes, label: What's included, label_singular: Item, widget: list }
+      - { name: cta, label: Button label, widget: string, default: "Let's Talk" }
+      - { name: limited, label: Show "limited engagements" note, widget: boolean, default: false }
+      - { name: icon, label: Icon, widget: select, options: [shepherd, building], required: false }
+      - { name: order, label: Display order (1 = first), widget: number, value_type: int }
+
+  # ---------- Testimonials ----------
+  - name: testimonials
+    label: Testimonials
+    label_singular: Testimonial
+    icon: format_quote
+    folder: src/content/testimonials
+    create: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    identifier_field: name
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: title, label: Title, widget: string }
+      - { name: company, label: Company, widget: string }
+      - { name: quote, label: Quote, widget: text }
+      - { name: result, label: Result (optional metric), widget: string, required: false }
+      - { name: featured, label: Featured, widget: boolean, default: false }

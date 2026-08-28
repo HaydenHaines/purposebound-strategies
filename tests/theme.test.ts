@@ -9,16 +9,9 @@ describe('theme.config', () => {
     });
   });
 
-  it('has exactly 3 metrics', () => {
-    expect(theme.metrics).toHaveLength(3);
-  });
-
-  it('has a leadMagnet title', () => {
-    expect(theme.leadMagnet.title.length).toBeGreaterThan(0);
-  });
-
-  it('has exactly 3 benefits', () => {
-    expect(theme.benefits).toHaveLength(3);
+  it('contains brand tokens only — all content lives in src/content/', () => {
+    expect(Object.keys(theme)).toEqual(['brand']);
+    expect(Object.keys(theme.brand).sort()).toEqual(['colors', 'fonts']);
   });
 
   it('has Oswald as display font', () => {

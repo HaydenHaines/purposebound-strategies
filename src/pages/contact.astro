@@ -2,7 +2,10 @@
 // src/pages/contact.astro
 import Page from '../layouts/Page.astro';
 import SectionLabel from '../components/SectionLabel.astro';
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+const site = settingsSchemas.site.parse((await getEntry('settings', 'site'))!.data);
+const contact = settingsSchemas.contact.parse((await getEntry('settings', 'contact'))!.data);
 
 ---
 <Page
@@ -23,10 +26,9 @@ import { theme } from '../../theme.config';
   <section class="bg-cream px-6 sm:px-10 py-14">
     <div class="max-w-3xl mx-auto">
       <!-- Calendly inline widget -->
-      <!-- DEBT: replace [handle] in theme.config.ts when Calendly account is set up -->
       <div
         class="calendly-inline-widget min-h-[650px]"
-        data-url={theme.calendly.url}
+        data-url={site.calendly.url}
         style="min-width:320px"
       />
       <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async />
@@ -39,7 +41,7 @@ import { theme } from '../../theme.config';
       <SectionLabel text="Before You Book" light />
       <h2 class="text-cream text-2xl font-bold mb-8">Common Questions</h2>
       <div class="space-y-8">
-        {theme.contact.faq.map((item) => (
+        {contact.faq.map((item) => (
           <div>
             <h3 class="text-accent font-bold text-base mb-2">{item.q}</h3>
             <p class="text-muted text-base leading-relaxed">{item.a}</p>

@@ -10,19 +10,25 @@ import QuoteBlock from '../components/QuoteBlock.astro';
 import LeadMagnetForm from '../components/LeadMagnetForm.astro';
 import TestimonialGrid from '../components/TestimonialGrid.astro';
 import ServiceIconCard from '../components/ServiceIconCard.astro';
-import { theme } from '../../theme.config';
-import { getCollection } from 'astro:content';
+import { settingsSchemas, pageSchemas } from '../content/config';
+import { getCollection, getEntry } from 'astro:content';
+
+const founder = settingsSchemas.founder.parse((await getEntry('settings', 'founder'))!.data);
+const leadMagnet = settingsSchemas.leadMagnet.parse((await getEntry('settings', 'leadMagnet'))!.data);
+const home = pageSchemas.home.parse((await getEntry('pages', 'home'))!.data);
 
 const testimonialEntries = await getCollection('testimonials');
 const testimonials = testimonialEntries
-  .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0))
+  // Content layer's glob loader does not guarantee file enumeration order, so tie-break
+  // on id for a deterministic render (featured first, then alphabetical by filename).
+  .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0) || a.id.localeCompare(b.id))
   .map(e => e.data);
 
 const serviceEntries = await getCollection('services');
 const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
 
 ---
-<Page title="Professional Coaching & Marketplace Ministry">
+<Page title={home.meta.title}>
 
   <HeroAlt />
   <BenefitBar />
@@ -31,21 +37,21 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   <section class="bg-accent clip-diag-bottom">
     <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6 sm:px-10 pt-14 pb-4">
       <div class="bg-deep px-8 py-10">
-        <SectionLabel text="Who I Work With" light />
+        <SectionLabel text={home.whoIWorkWith.label} light />
         <h2 class="font-display uppercase text-cream text-3xl font-bold mb-4 leading-tight">
-          Leaders Who Know Their Business Was Made for More.
+          {home.whoIWorkWith.headline}
         </h2>
         <p class="text-muted text-base leading-relaxed">
-          If you're carrying the weight of your organization's culture — and quietly wondering if there's someone who can help you tend the souls in your care, not just the systems — you're exactly who this is for.
+          {home.whoIWorkWith.body}
         </p>
       </div>
       <div class="bg-deep border-l-4 border-accent px-8 py-10">
-        <SectionLabel text="The Problem" light />
+        <SectionLabel text={home.problem.label} light />
         <h2 class="font-display uppercase text-cream text-3xl font-bold leading-tight mb-4">
-          You Can Build a Thriving Business and Still Lose Your People.
+          {home.problem.headline}
         </h2>
         <p class="text-muted text-base leading-relaxed">
-          Metrics don't shepherd hearts. Systems don't tend souls. If you sense there's more — for your people, your culture, your calling — PurposeBound Strategies was built for you.
+          {home.problem.body}
         </p>
       </div>
     </div>
@@ -56,30 +62,30 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 items-stretch px-6 sm:px-10 py-16">
       <div class="overflow-hidden">
         <img
-          src={`${theme.founder.photo}`}
-          alt={theme.founder.name}
+          src={`${founder.photo}`}
+          alt={founder.name}
           class="w-full h-full object-cover object-top"
           loading="lazy"
         />
       </div>
       <div class="flex flex-col justify-center pl-0 pt-8 md:pt-0 md:pl-12">
-        <SectionLabel text="Meet Tory" />
+        <SectionLabel text={home.meetTory.label} />
         <h2 class="font-display uppercase text-pb-text text-4xl font-bold leading-none mb-6">
-          Hi, I'm Tory.
+          {home.meetTory.headline}
         </h2>
         <p class="text-pb-text/70 text-base leading-relaxed mb-4">
-          Kingdom-minded catalyst, coach, and sales leader — led six, million-dollar producers, high school and collegiate athletes, 34 leaders taken from their desks to the mission field, and 25 years living at the intersection of faith and excellence.
+          {home.meetTory.body}
         </p>
         <blockquote class="border-l-4 border-accent pl-5 py-1 mb-8">
           <p class="text-pb-text/80 text-base font-bold italic leading-relaxed">
-            "For 25 years I've watched leaders build thriving organizations while slowly losing what matters most. That gap is exactly where I work."
+            {home.meetTory.quote}
           </p>
         </blockquote>
         <a
-          href={`/about`}
+          href={home.meetTory.cta.href}
           class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-6 py-3 hover:brightness-110 transition-all self-start"
         >
-          Read His Story
+          {home.meetTory.cta.label}
         </a>
       </div>
     </div>
@@ -90,9 +96,9 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   <!-- Services — gold section, icon cards -->
   <section class="bg-accent px-6 sm:px-10 py-16">
     <div class="text-center mb-10">
-      <SectionLabel text="Services" />
+      <SectionLabel text={home.services.label} />
       <h2 class="font-display uppercase text-deep text-4xl font-bold leading-none">
-        How We Work Together
+        {home.services.headline}
       </h2>
     </div>
     <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -116,10 +122,10 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
   <!-- Bold accent callout -->
   <section class="bg-accent px-6 sm:px-10 py-16 text-center">
     <p class="font-display uppercase text-deep text-3xl sm:text-5xl font-bold leading-none max-w-2xl mx-auto" style="letter-spacing: 0.02em;">
-      The Workplace Is a Mission Field.
+      {home.callout.headline}
     </p>
     <p class="text-deep/70 text-base mt-5 max-w-lg mx-auto leading-relaxed">
-      The question isn't whether your organization is forming the people in it — it's what it's forming them into.
+      {home.callout.body}
     </p>
   </section>
 
@@ -128,26 +134,26 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
     <div class="mx-auto" style="max-width: 64rem;">
       <!-- Mobile: label + headline sit ABOVE the photo so they never cover faces -->
       <div class="sm:hidden bg-deep flex flex-col items-center text-center px-6 pt-8 pb-6">
-        <p class="font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5 inline-block">Ministry in the Marketplace</p>
+        <p class="font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5 inline-block">{home.banner.label}</p>
         <p class="font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl">
-          Faith Doesn't Stop at the Office Door.
+          {home.banner.headline}
         </p>
       </div>
       <div class="relative h-[280px] sm:h-[420px] overflow-hidden">
         <img
-          src={`/images/mission-group.jpg`}
-          alt="Group on mission trip"
+          src={home.banner.image}
+          alt={home.banner.imageAlt}
           class="w-full h-full object-cover object-center"
           loading="lazy"
         />
         <!-- sm+: full overlay on the photo. Mobile: only the subline, pinned to the bottom edge -->
         <div class="absolute inset-0 bg-gradient-to-b from-deep/20 via-deep/70 to-deep/95 sm:via-deep/70 flex flex-col items-center justify-end text-center px-6 sm:px-10 pb-6 sm:pb-10">
-          <p class="hidden sm:inline-block font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5">Ministry in the Marketplace</p>
+          <p class="hidden sm:inline-block font-inter text-deep text-xs uppercase tracking-[0.3em] mb-4 bg-accent px-4 py-1.5">{home.banner.label}</p>
           <p class="hidden sm:block font-display uppercase text-cream text-3xl font-bold leading-none max-w-xl" style="text-shadow: 0 2px 12px rgba(0,0,0,1);">
-            Faith Doesn't Stop at the Office Door.
+            {home.banner.headline}
           </p>
           <p class="text-cream text-base sm:mt-4 max-w-lg" style="text-shadow: 0 1px 8px rgba(0,0,0,1);">
-            34 leaders brought from their desks to the mission field — and back again, changed.
+            {home.banner.subline}
           </p>
         </div>
       </div>
@@ -156,25 +162,25 @@ const services = serviceEntries.sort((a, b) => a.data.order - b.data.order);
 
   <!-- What I Believe -->
   <section class="px-6 sm:px-10 py-10 max-w-2xl mx-auto">
-    <SectionLabel text="What I Believe" />
+    <SectionLabel text={home.whatIBelieve.label} />
     <QuoteBlock
-      quote="A business is a discipleship environment. The question isn't whether you're forming your team — it's what you're forming them into."
+      quote={home.whatIBelieve.quote}
     />
     <div class="mt-6 pl-6">
       <a
-        href={`/about`}
+        href={home.whatIBelieve.cta.href}
         class="font-inter inline-block bg-accent text-deep text-xs font-bold uppercase tracking-wider px-8 py-4 hover:brightness-110 transition-all"
       >
-        Read the Full Statement
+        {home.whatIBelieve.cta.label}
       </a>
     </div>
   </section>
 
   <!-- Lead Magnet CTA -->
   <section class="bg-rich border-t-[3px] border-accent px-6 sm:px-10 py-14 text-center">
-    <SectionLabel text="Free Resource" light />
-    <h2 class="font-display uppercase text-cream text-3xl font-bold mb-3">{theme.leadMagnet.title}</h2>
-    <p class="text-muted text-base mb-8 max-w-md mx-auto">{theme.leadMagnet.description}</p>
+    <SectionLabel text={home.freeResource.label} light />
+    <h2 class="font-display uppercase text-cream text-3xl font-bold mb-3">{leadMagnet.title}</h2>
+    <p class="text-muted text-base mb-8 max-w-md mx-auto">{leadMagnet.description}</p>
     <LeadMagnetForm />
   </section>
 

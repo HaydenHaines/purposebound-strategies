@@ -2,20 +2,22 @@
 // src/pages/start.astro
 import Bare from '../layouts/Bare.astro';
 import LeadMagnetForm from '../components/LeadMagnetForm.astro';
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+const leadMagnet = settingsSchemas.leadMagnet.parse((await getEntry('settings', 'leadMagnet'))!.data);
 ---
 <Bare
   title="Get the Free Guide"
-  description={theme.leadMagnet.description}
+  description={leadMagnet.description}
 >
   <!-- Hero: the offer -->
   <section class="bg-rich border-b-[3px] border-accent px-6 sm:px-10 py-16 text-center">
     <p class="text-accent text-[10px] uppercase tracking-[0.25em] mb-4">Free Resource</p>
     <h1 class="text-cream text-3xl font-bold mb-4 max-w-xl mx-auto leading-snug">
-      {theme.leadMagnet.title}
+      {leadMagnet.title}
     </h1>
     <p class="text-muted text-sm leading-relaxed max-w-md mx-auto mb-10">
-      {theme.leadMagnet.description}
+      {leadMagnet.description}
     </p>
     <LeadMagnetForm />
   </section>
@@ -24,7 +26,7 @@ import { theme } from '../../theme.config';
   <section class="bg-cream px-6 sm:px-10 py-14 max-w-xl mx-auto">
     <p class="text-link text-[10px] uppercase tracking-[0.25em] mb-6 text-center">What's Inside</p>
     <ul class="space-y-4">
-      {theme.leadMagnet.bullets.map((bullet) => (
+      {leadMagnet.bullets.map((bullet) => (
         <li class="flex gap-3 text-pb-text text-sm leading-relaxed">
           <span class="text-accent font-bold flex-shrink-0 mt-0.5">→</span>
           {bullet}

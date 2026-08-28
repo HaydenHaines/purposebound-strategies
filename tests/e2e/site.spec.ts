@@ -78,7 +78,7 @@ test.describe('/thank-you page', () => {
     await page.goto(r('/thank-you'));
     await expect(page.locator('h1')).toContainText('ready');
     const download = page.getByRole('link', { name: /Download the Guide/i });
-    await expect(download).toHaveAttribute('href', '/5-pillars-christ-centered-sales-culture.pdf');
+    await expect(download).toHaveAttribute('href', '/5-pillars-christ-centered-culture.pdf');
     const cta = page.getByRole('link', { name: /Let's Talk/i });
     await expect(cta).toBeVisible();
   });
@@ -126,11 +126,15 @@ test.describe('/contact page', () => {
   });
 });
 
-test.describe('/alt page', () => {
-  // The alt design was promoted to the homepage; /alt now redirects to /.
-  test('redirects to the homepage', async ({ page }) => {
-    await page.goto(r('/alt'));
-    await expect(page).toHaveURL(/localhost:\d+\/$/);
-    await expect(page.locator('h1')).toContainText('Something Greater');
+test.describe('/admin (CMS)', () => {
+  test('serves the Sveltia editor shell', async ({ page }) => {
+    // NOTE: astro dev (unlike the production build / astro preview / Netlify) does not resolve
+    // index.html for trailing-slash requests into public/ subdirectories (withastro/astro#14800),
+    // so this hits the file directly. /admin/ is verified against `astro preview` in Step 7.
+    const res = await page.goto(r('/admin/index.html'));
+    expect(res?.status()).toBe(200);
+    await expect(page.locator('script[src*="sveltia-cms"]')).toHaveCount(1);
+    // Sveltia CMS itself injects a second <meta name="robots"> at runtime, so scope to the first (ours).
+    await expect(page.locator('meta[name="robots"]').first()).toHaveAttribute('content', /noindex/);
   });
 });

@@ -5,13 +5,15 @@
 // DEBT: have legal counsel review before relying on this for compliance.
 import Page from '../layouts/Page.astro';
 import SectionLabel from '../components/SectionLabel.astro';
-import { theme } from '../../theme.config';
+import { getEntry } from 'astro:content';
+import { settingsSchemas } from '../content/config';
+const site = settingsSchemas.site.parse((await getEntry('settings', 'site'))!.data);
 
 const lastUpdated = 'June 19, 2026';
 ---
 <Page
   title="Privacy Policy"
-  description={`How ${theme.site.name} collects, uses, and protects your information.`}
+  description={`How ${site.name} collects, uses, and protects your information.`}
 >
 
   <!-- Page Hero -->
@@ -27,7 +29,7 @@ const lastUpdated = 'June 19, 2026';
     <div class="space-y-8 text-pb-text/80 text-base leading-relaxed">
 
       <p>
-        {theme.site.name} ("we," "us," or "our") respects your privacy and is committed to
+        {site.name} ("we," "us," or "our") respects your privacy and is committed to
         protecting the personal information you share with us. This policy explains what we collect,
         how we use it, and the choices you have. By using this website, you agree to the practices
         described here.
@@ -121,7 +123,7 @@ const lastUpdated = 'June 19, 2026';
         <h2 class="text-pb-text text-xl font-bold mb-3">Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy or how your information is handled, please
-          contact us at <a href={`mailto:${theme.founder.email}`} class="text-link underline">{theme.founder.email}</a>.
+          contact us at <a href={`mailto:${site.contactEmail}`} class="text-link underline">{site.contactEmail}</a>.
         </p>
       </div>
 

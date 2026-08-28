@@ -1,0 +1,14 @@
+{
+  "name": "PurposeBound Strategies",
+  "tagline": "Equipping Leaders for Marketplace Ministry.",
+  "description": "Corporate ministry and Kingdom-focused coaching for faith-driven leaders committed to bringing the Kingdom into the marketplace.",
+  "url": "https://purposeboundstrategies.com",
+  "nav": [
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Blog", "href": "/blog" }
+  ],
+  "social": { "linkedin": "https://www.linkedin.com/in/tory-bryant-84197973/" },
+  "calendly": { "url": "https://calendly.com/twbryant1999/30min" },
+  "contactEmail": "twbryant1999@gmail.com"
+}

@@ -16,16 +16,23 @@ npx vitest run   # Unit tests (theme.config + content collection shapes)
 npx playwright test  # E2E tests (requires dev server — starts automatically)
 ```
 
+## Reviewing the CMS locally
+
+The Astro dev server does not serve `public/admin/index.html` at `/admin/` (upstream [withastro/astro#14800](https://github.com/withastro/astro/issues/14800)). Use `npm run build && npx astro preview` then open `http://localhost:4321/admin/` — or, in `npm run dev`, open `http://localhost:4321/admin/index.html` directly.
+
+On localhost, Sveltia offers **"Work with Local Repository"** (Chrome/Edge) — pick the repo folder; edits write straight to the working tree with no GitHub login required. Discard test edits with `git checkout -- src/content public`.
+
 ## Key Files
 
-- `theme.config.ts` — ALL design tokens, content values, placeholder data. Start here.
+- `theme.config.ts` — brand colors + fonts ONLY. All copy/settings live in `src/content/` (`settings/`, `pages/`, `blog/`, `services/`, `testimonials/`) and are edited by the client at `/admin`.
 - `src/styles/global.css` — CSS custom properties. Must stay in sync with theme.config.ts colors.
 - `src/content/` — Content Collections: blog posts, testimonials, services
+- `public/admin/config.yml` — Sveltia CMS field definitions; MUST mirror the Zod schemas in `src/content/config.ts` (test: `tests/admin-config.test.ts`).
 - `netlify.toml` — Build config, form handling, security headers
 
 ## Code Quality Rule (MANDATORY)
 
-Every touch improves the code. No hacks without `// DEBT:`. All content from theme.config.ts or Content Collections — never hardcoded in components.
+Every touch improves the code. No hacks without `// DEBT:`. All content from Content Collections (`src/content/`) — never hardcoded in components or `theme.config.ts`.
 
 ## Gotchas
 
@@ -34,8 +41,6 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 2. **CSS color token naming**: Tailwind reserves `text` as a class name, so the body text color token is `pb-text` in Tailwind (`text-pb-text`) but `--color-text` as a CSS variable.
 
 3. **theme.config.ts ↔ global.css sync**: Color values appear in both files. They must match. If you change a color in theme.config.ts, update the matching CSS variable in global.css too.
-
-4. **Calendly URL placeholder**: `theme.calendly.url` contains `[handle]` until the real account URL is set. The Calendly embed will not render until this is updated.
 
 5. **Vitest excludes E2E tests**: `vitest.config.ts` explicitly excludes `tests/e2e/**`. Do not remove this — Vitest would otherwise pick up Playwright spec files and fail on `test.describe()`.
 
@@ -47,6 +52,16 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 
 9. **SectionLabel and QuoteBlock on dark sections**: Both components have a `light` boolean prop. Always pass `light` when the component sits inside a `bg-rich` or `bg-deep` section — without it, `text-link` (#2573b6) and `text-pb-text` (#132240) are near-invisible on the dark backgrounds (#1b3560 / #132240). Default (no prop) = dark text for cream/light sections.
 
+10. **CMS ↔ schema lock-step**: adding a field means editing BOTH `src/content/config.ts` (Zod) and `public/admin/config.yml` (Sveltia) with the same key name. A key the schema doesn't know fails the build; a key the CMS doesn't know is invisible to Tory.
+
+11. **CMS saves deploy live**: Sveltia commits straight to `main` (no editorial workflow). A save that violates a schema fails the Netlify build and the site stays on the last good deploy — check Netlify deploy logs when Tory reports "my change didn't show up".
+
+12. **Auth is Netlify's GitHub OAuth provider, NOT Git Gateway** (Git Gateway is deprecated). Editors need a GitHub account with Write access to the repo. Never add `base_url` to `config.yml` unless replacing the auth provider.
+
+13. **HTML parity guard**: `scripts/html-parity.sh snapshot|check` — use it for any refactor that must not change rendered output.
+
+14. **Data-collection sort order is not deterministic** across clean builds (Astro's glob loader reads files concurrently). Any list rendered from a `type: 'data'` collection needs an explicit total order — `services` has `order`; `testimonials` sorts featured-first then by entry id (see index.astro).
+
 ## Key Decisions Log
 
 | Date | Decision | Rationale |
@@ -57,3 +72,7 @@ Every touch improves the code. No hacks without `// DEBT:`. All content from the
 | 2026-03-24 | Netlify Forms over backend | No server needed; free tier handles small lead volumes; Decap CMS auth uses Netlify Identity anyway |
 | 2026-06-19 | MailerLite as email provider | Free to 1,000 subs; bridged via Netlify outgoing webhook → Zapier Catch Hook → MailerLite "Create Subscriber" (group `Leads – 5 Pillars`). No form-markup change; `theme.email.webhookUrl` stays empty (webhook is set in Netlify dashboard, not code). Lead fields: name, email, phone, business, employees. |
 | 2026-06-19 | Live on Netlify + custom domain | Migrated off GitHub Pages; `base` removed, `site` set to `https://purposeboundstrategies.com`; stale `.github/workflows/deploy.yml` (GH Pages) deleted. Form detection enabled + email notification to Tory working. Client signed off on current state. |
+| 2026-08-27 | Sveltia CMS (GitHub backend via Netlify OAuth) over Decap+Identity+Git Gateway | Git Gateway deprecated by Netlify; Sveltia is the maintained Decap-compatible successor; no servers, no SaaS. |
+| 2026-08-27 | All copy moved from theme.config.ts + templates into Content Collections | Single typed source the CMS can write; theme.config.ts is brand tokens only. |
+| 2026-08-27 | No editorial workflow | Single editor; save = publish; blog keeps its draft flag. |
+| 2026-08-27 | Metrics removed (not migrated) | MetricsBar was never rendered; no value in exposing dead content to the editor. |
